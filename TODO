@@ -1,6 +1,8 @@
-* Create EC2 instance using cloudformation.yaml.
+* ssh not working
 
-* Add startup script.
+* Is startup script logging its message?
+
+* Avoid need to pick Stackname, SshKeyName, Subnet and VPC.
 
 * Update DNS record on startup.
 
@@ -11,3 +13,4 @@
 * Deploy and start Spring app.
 
 * Configure https cert.
+
