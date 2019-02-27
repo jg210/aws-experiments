@@ -1,0 +1,13 @@
+* Create EC2 instance using cloudformation.yaml.
+
+* Add startup script.
+
+* Update DNS record on startup.
+
+* Versioning of awscli pip package.
+
+* Publish Spring app to S3.
+
+* Deploy and start Spring app.
+
+* Configure https cert.
