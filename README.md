@@ -1,4 +1,6 @@
-Setting up a free-tier AWS system using Cloud Formation.
+Setting up a free-tier AWS system using CloudFormation.
+
+[![Build Status](https://travis-ci.com/jg210/aws-experiments.svg?branch=master)](https://travis-ci.com/jg210/aws-experiments)
 
 ## Development Environment
 
