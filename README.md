@@ -6,7 +6,7 @@ Setting up a free-tier AWS system using CloudFormation.
 
 ```
 pip install awscli
-sudo apt-get install yaml-mode
+sudo apt-get install yaml-mode # If use emacs.
 ```
 
 To run [https://github.com/stelligent/cfn_nag](cfn_nag) CloudFormation static analysis:
