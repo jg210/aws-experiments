@@ -42,6 +42,9 @@ Resources:
     #   FromPort: 80
     #   ToPort: 80
     #   CidrIp: "0.0.0.0/0"
+      SecurityGroupEgress:
+      - IpProtocol: "tcp"
+        CidrIp: "0.0.0.0/0"
 Outputs:
   PublicIp:
     Value: !GetAtt 'Server.PublicIp'
