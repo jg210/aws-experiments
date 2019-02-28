@@ -14,6 +14,10 @@
 
 * Configure https cert.
 
+* Staging and production environments.
+
+* Automated deployments.
+
 * Static analysis.
   X cfn_nag.
   - https://github.com/Skyscanner/cfripper too?
