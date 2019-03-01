@@ -17,6 +17,6 @@ To run [cfn_nag](https://github.com/stelligent/cfn_nag) CloudFormation static an
 
 ```
 rbenv install "$(cat .ruby-version)"
-bundle install
-bundle exec cfn_nag_scan cloudformation.yaml
+rbenv exec bundle install
+rbenv exec bundle exec cfn_nag_scan cloudformation.yaml
 ```
