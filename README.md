@@ -4,19 +4,24 @@ Setting up a free-tier AWS system using [CloudFormation](https://aws.amazon.com/
 
 ## Development Environment
 
-```
-pip install awscli
-sudo apt-get install yaml-mode # If use emacs.
-```
-
-To run [cfn_nag](https://github.com/stelligent/cfn_nag) CloudFormation static analysis:
+These instructions are for Ubuntu, but should be adaptable to other platforms.
 
 * Install [rbenv](https://github.com/rbenv/rbenv#installation).
 * Install [ruby-build](https://github.com/rbenv/ruby-build) as an rbenv plugin.
 * Run:
 
 ```
+sudo apt-get install python3.5-venv yaml-mode
 rbenv install "$(cat .ruby-version)"
 rbenv exec bundle install
+python3.5 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip==19.0.3
+pip install -r requirements.txt
+```
+
+To run [cfn_nag](https://github.com/stelligent/cfn_nag) CloudFormation static analysis:
+
+```
 rbenv exec bundle exec cfn_nag_scan cloudformation.yaml
 ```

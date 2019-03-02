@@ -17,6 +17,11 @@
 * Staging and production environments.
 
 * Automated deployments.
+  - would need to do things like this to have python and ruby in travis.
+    - https://github.com/travis-ci/travis-ci/issues/4090
+  - a docker-based testing platform would be more convenient.
+
+* Wrap environment setup in scripts.
 
 * Static analysis.
   X cfn_nag.
