@@ -1,3 +1,7 @@
+* Set up IAM and access keys.
+
+* Run aws cloudformation validate-template from travis.
+
 * Move to UK/London region.
 
 * Avoid need to pick Stackname, SshKeyName, Subnet and VPC.
@@ -12,12 +16,15 @@
 
 * Configure https cert.
 
-* Staging and production environments.
+* Automate package updates.
 
 * Automated deployments.
   - would need to do things like this to have python and ruby in travis.
     - https://github.com/travis-ci/travis-ci/issues/4090
   - a docker-based testing platform would be more convenient.
+  - generate change set on branches don't deploy from.
+
+* Staging and production environments.
 
 * Wrap environment setup in scripts.
 
