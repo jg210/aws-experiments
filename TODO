@@ -1,8 +1,4 @@
-* ssh not working.
-
 * Move to UK/London region.
-
-* Is startup script logging its message?
 
 * Avoid need to pick Stackname, SshKeyName, Subnet and VPC.
 
