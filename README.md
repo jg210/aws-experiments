@@ -20,8 +20,15 @@ pip install --upgrade pip==19.0.3
 pip install -r requirements.txt
 ```
 
+If add the set of gem executables is changed, re-run this:
+
+```
+. environment
+bundler binstubs --all --path .bundle/bin
+```
+
 To run [cfn_nag](https://github.com/stelligent/cfn_nag) CloudFormation static analysis:
 
 ```
-rbenv exec bundle exec cfn_nag_scan --input-path cloudformation.yaml
+cfn_nag_scan --input-path cloudformation.yaml
 ```
