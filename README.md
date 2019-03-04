@@ -23,5 +23,5 @@ pip install -r requirements.txt
 To run [cfn_nag](https://github.com/stelligent/cfn_nag) CloudFormation static analysis:
 
 ```
-rbenv exec bundle exec cfn_nag_scan cloudformation.yaml
+rbenv exec bundle exec cfn_nag_scan --input-path cloudformation.yaml
 ```
