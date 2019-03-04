@@ -18,6 +18,7 @@ python3.5 -m venv .venv
 . environment # Repeat this every time open new terminal.
 pip install --upgrade pip==19.0.3
 pip install -r requirements.txt
+aws configure
 ```
 
 If add the set of gem executables is changed, re-run this:
