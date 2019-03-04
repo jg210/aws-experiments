@@ -35,6 +35,12 @@ To run [cfn_nag](https://github.com/stelligent/cfn_nag) CloudFormation static an
 cfn_nag_scan --input-path cloudformation.yaml
 ```
 
+To validate template using aws CLI tool:
+
+```
+aws cloudformation validate-template --template-body file://cloudformation.yaml
+```
+
 To deploy the CloudFormation template:
 
 ```
