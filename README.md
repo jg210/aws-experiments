@@ -22,7 +22,7 @@ pip install -r requirements.txt
 aws configure # eu-west-1, json.
 ```
 
-If add the set of gem executables is changed, re-run this:
+If the set of gem executables is changed, re-run this and check in the result:
 
 ```
 . environment
