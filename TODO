@@ -1,14 +1,7 @@
-* Set up IAM and access keys.
-
-* Run aws cloudformation validate-template from travis.
-
-* Move to UK/London region.
-
 * Avoid need to pick Stackname, SshKeyName, Subnet and VPC.
+  - Ireland region.
 
 * Update DNS record on startup.
-
-* Versioning of awscli pip package.
 
 * Publish Spring app to S3.
 
@@ -18,7 +11,7 @@
 
 * Automate package updates.
 
-* Staging and production environments.
+* Staging and production environments?
 
 * Automated deployments.
   - would need to do things like this to have python and ruby in travis.
@@ -26,12 +19,11 @@
   - a docker-based testing platform would be more convenient.
   - generate change set on branches don't deploy from.
 
-* Staging and production environments.
-
 * Wrap environment setup in scripts.
 
 * Tighten up egress permissions.
 
 * Static analysis.
   X cfn_nag.
+  - run aws cloudformation validate-template from travis.
   - https://github.com/Skyscanner/cfripper too?
