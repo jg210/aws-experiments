@@ -1,0 +1,3 @@
+VIRTUAL_ENV_DISABLE_PROMPT=true
+source .venv/bin/activate
+complete -C .venv/bin/aws_completer aws

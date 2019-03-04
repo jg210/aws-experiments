@@ -8,14 +8,14 @@ These instructions are for Ubuntu, but should be adaptable to other platforms.
 
 * Install [rbenv](https://github.com/rbenv/rbenv#installation).
 * Install [ruby-build](https://github.com/rbenv/ruby-build) as an rbenv plugin.
-* Run:
+* Run (from a bash shell):
 
 ```
 sudo apt-get install python3.5-venv yaml-mode
 rbenv install "$(cat .ruby-version)"
 rbenv exec bundle install
 python3.5 -m venv .venv
-source .venv/bin/activate # Repeat this every time open new terminal.
+. environment # Repeat this every time open new terminal.
 pip install --upgrade pip==19.0.3
 pip install -r requirements.txt
 ```
