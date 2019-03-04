@@ -18,6 +18,8 @@
 
 * Automate package updates.
 
+* Staging and production environments.
+
 * Automated deployments.
   - would need to do things like this to have python and ruby in travis.
     - https://github.com/travis-ci/travis-ci/issues/4090
@@ -27,6 +29,8 @@
 * Staging and production environments.
 
 * Wrap environment setup in scripts.
+
+* Tighten up egress permissions.
 
 * Static analysis.
   X cfn_nag.
