@@ -47,7 +47,7 @@ To deploy the CloudFormation template:
 aws cloudformation create-stack --template-body file://cloudformation.yaml --stack-name aws-experiments --parameter ParameterKey=SshKeyName,ParameterValue=xxxxxxxx
 ```
 
-To update an existing stack.
+To update an existing stack:
 
 ```
 aws cloudformation update-stack --template-body file://cloudformation.yaml --stack-name aws-experiments --parameter ParameterKey=SshKeyName,UsePreviosValue=true
