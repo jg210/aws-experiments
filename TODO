@@ -1,5 +1,23 @@
 * Update DNS record on startup.
-  - curl http://169.254.169.254/latest/meta-data/public-ipv4
+  - IP address changes on each restart.
+  - can get IP address using curl http://169.254.169.254/latest/meta-data/public-ipv4
+  - store password in SSM and install to file using e.g. CloudFormation::Init
+    - is that secure?
+      - user data can be read using http://169.254.169.254/latest/user-data
+    - how would password be changed?
+  - expose to all users in EC2 instance using IAM roles
+    - e.g. https://www.honeybadger.io/blog/managing-secrets-in-ec2/
+    - but only one unix user needs to know that password
+  - https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html
+    - running in the ubuntu AMI I am using.
+  - set up an Elastic IP address instead?
+    => can send IP at install time and amazon never needs to know the password
+    - pay for Elastic IP address unless use all of free-tier EC2 allowance
+      keeping an instance running.
+      - ~$100 a year for t2.micro
+
+* user-data script is not viable way to provision instance
+  - not run on stack update.
 
 * Publish Spring app to S3.
 
@@ -8,6 +26,8 @@
 * Configure https cert.
 
 * Automate package updates.
+
+* Wait for server to start up before declaring EC2/stack deployment complete.
 
 * Redirect http to https.
 

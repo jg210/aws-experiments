@@ -72,9 +72,8 @@ Resources:
           set -o nounset
           set -o errexit
           set -o pipefail
-          publicIpAddress=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
-          printf "public IP address: %s\n" "${publicIpAddress}"
-          sudo apt-get install nginx
+          sudo apt-get update
+          sudo apt-get -y install nginx
   SecurityGroup:
     Type: "AWS::EC2::SecurityGroup"
     Properties:

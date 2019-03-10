@@ -50,10 +50,18 @@ To deploy the CloudFormation template:
 
 ```
 aws cloudformation create-stack --template-body file://cloudformation.yaml --stack-name aws-experiments
+aws cloudformation wait stack-create-complete --stack-name aws-experiments
 ```
 
 To update an existing stack:
 
 ```
 aws cloudformation update-stack --template-body file://cloudformation.yaml --stack-name aws-experiments
+aws cloudformation wait stack-update-complete --stack-name aws-experiments
+```
+
+To get the public IP address:
+
+```
+aws cloudformation describe-stacks --stack-name aws-experiments --query 'Stacks[0].Outputs[?OutputKey==`PublicIp`].OutputValue'
 ```
