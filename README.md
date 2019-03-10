@@ -50,5 +50,5 @@ aws cloudformation create-stack --template-body file://cloudformation.yaml --sta
 To update an existing stack:
 
 ```
-aws cloudformation update-stack --template-body file://cloudformation.yaml --stack-name aws-experiments --parameter ParameterKey=SshKeyName,UsePreviosValue=true
+aws cloudformation update-stack --template-body file://cloudformation.yaml --stack-name aws-experiments --parameter ParameterKey=SshKeyName,UsePreviousValue=true
 ```
