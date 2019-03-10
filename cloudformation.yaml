@@ -4,6 +4,7 @@ Description: "Free-tier web hosting."
 Parameters:
   SshKeyName:
     Type: "AWS::EC2::KeyPair::KeyName"
+    Default: "aws-experiments"
 # DnsApiKey:
 #   Description: "DNS-update API key."
 #   Type: "AWS::SecretsManager::Secret"

@@ -1,6 +1,3 @@
-* Avoid need to pick Stackname, SshKeyName, Subnet and VPC.
-  - Ireland region.
-
 * Update DNS record on startup.
 
 * Publish Spring app to S3.
@@ -10,6 +7,15 @@
 * Configure https cert.
 
 * Automate package updates.
+
+* EC2 cloudformation config only allows one ssh public key per instance...
+  - https://stackoverflow.com/questions/24409095/create-an-ec2-instance-with-multiple-key-pairs
+  - so how are you supposed to log in from multiple home directories?
+    - sharing a private key is not acceptable, especially not between users.
+    - using parameter means could have one instance per ssh key, but that's not useful.
+    - reupload key each time change home directories?
+    - generate new key each time deploy instance, throwing away as soon as have provisioned instance properly.
+    - build and deploy AMI containing public keys
 
 * Staging and production environments?
 
