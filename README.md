@@ -41,7 +41,7 @@ To validate template using aws CLI tool:
 aws cloudformation validate-template --template-body file://cloudformation.yaml
 ```
 
-To upload or create an "aws-expeiments" ssh key using EC2 console:
+Upload or create an "aws-experiments" ssh key using EC2 console:
 
 * https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws
 * https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair
