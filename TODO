@@ -9,6 +9,8 @@
 
 * Automate package updates.
 
+* Redirect http to https.
+
 * Configure Elastic IP address
   - free when are using it
   - would reduce number of times need to update DNS record
