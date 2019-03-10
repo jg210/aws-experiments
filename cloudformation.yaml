@@ -14,7 +14,7 @@ Mappings:
   RegionMap:
     # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
     "eu-west-1":
-      AMI: "ami-0a10e725ed0eaf48c"
+      AMI: "ami-08d658f84a6d84a80"
 Resources:
   VPC:
     Type: AWS::EC2::VPC
