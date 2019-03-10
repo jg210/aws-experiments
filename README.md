@@ -1,6 +1,10 @@
-Setting up a free-tier AWS system using [CloudFormation](https://aws.amazon.com/cloudformation/).
+Setting up a (mostly) free-tier AWS system using [CloudFormation](https://aws.amazon.com/cloudformation/).
 
 [![Build Status](https://travis-ci.com/jg210/aws-experiments.svg?branch=master)](https://travis-ci.com/jg210/aws-experiments)
+
+## Non Free-Tier Resources
+
+The Elastic IP address is not free if the EC2 instance is not running. Either keep the EC2 instance running, or destroy at least the Elastic IP address.
 
 ## Development Environment
 
