@@ -16,7 +16,7 @@ These instructions are for Ubuntu, but should be adaptable to other platforms.
 * Run (from a bash shell):
 
 ```
-sudo apt-get install python3.5-venv yaml-mode
+sudo apt-get install python3.5-venv
 rbenv install "$(cat .ruby-version)"
 rbenv exec bundle install
 python3.5 -m venv .venv
@@ -24,6 +24,16 @@ python3.5 -m venv .venv
 pip install --upgrade pip==19.0.3
 pip install -r requirements.txt
 aws configure # eu-west-1, json.
+```
+
+To configure emacs:
+
+* Add [melpa](https://www.emacswiki.org/emacs/MELPA) package-source configuration to ~/.emacs
+* From emacs, {{M-x list-packages}} and install terraform-mode.
+* From command-line, run:
+
+```
+sudo apt-get install yaml-mode
 ```
 
 If the set of gem executables is changed, re-run this and check in the result:
