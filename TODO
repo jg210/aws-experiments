@@ -1,17 +1,14 @@
-* Automated tests.
-  - is there a useful test to run without having state on travis?
-  - install terraform in travis somehow
-
 * Fix terraform provider versions.
 
 * Fix terraform version?
 
-* Set up terraform state storage.
-
 * Update DNS record with elastic IP address of server.
 
-* user-data script is not viable way to provision instance
-  - not run on stack update.
+* Automated tests.
+  - is there a useful test to run without having state on travis?
+  - install terraform in travis somehow
+
+* Set up terraform state storage.
 
 * Publish Spring app to S3.
 

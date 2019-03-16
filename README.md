@@ -12,10 +12,12 @@ The Elastic IP address is not free if the EC2 instance is not running. Either ke
 
 These instructions are for Ubuntu, but should be adaptable to other platforms.
 
-* Download, unpack and put executable on PATH: https://www.terraform.io/downloads.html
+* Create AWS account.
+* Configure an AWS IAM user with appropriate permissions.
+* Set up AWS Config service for your chosen region, to see what resources you're using.
+* [Download](https://www.terraform.io/downloads.html) terraform, unpack and put executable on PATH.
 * Install [rbenv](https://github.com/rbenv/rbenv#installation).
 * Install [ruby-build](https://github.com/rbenv/ruby-build) as an rbenv plugin.
-* Configure an AWS IAM user with appropriate permissions.
 * Run (from a bash shell):
 
 ```
@@ -46,3 +48,10 @@ If the set of gem executables is changed, re-run this and check in the result:
 bundler binstubs --all --path .bundle/bin
 ```
 
+To deploy:
+
+```
+terraform init
+terraform plan
+terraform deploy
+```
