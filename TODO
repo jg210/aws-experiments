@@ -1,3 +1,5 @@
+* Use terraform.
+
 * Update DNS record with elastic IP address of server.
 
 * user-data script is not viable way to provision instance
@@ -11,15 +13,20 @@
 
 * Automate package updates.
 
+* Don't allow connections until first set of updates applied.
+
 * Wait for server to start up before declaring EC2/stack deployment complete.
 
 * Redirect http to https.
 
-* Configure Elastic IP address
-  - free when are using it
-  - would reduce number of times need to update DNS record
-  - would presumbly have to configure public IP address on instance network interface,
-    not via the default on the subnet?
+* Automatic restarts on EC2 failure
+  - configure autoscaling group?
+    - one subnet per AZ
+    - one instance max to stay within free tier
+    - have to use a hack to keep same Elastic IP address when restart.
+  - configure cloudwatch?
+    - would lose service if AZ fails
+    - IP address retained.
 
 * NTP
   - ntp.ubuntu.com inaccessible from the EC2 instance.
