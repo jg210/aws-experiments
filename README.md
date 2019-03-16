@@ -14,8 +14,8 @@ These instructions are for Ubuntu, but should be adaptable to other platforms.
 
 * Create AWS account.
 * Configure an AWS IAM user with appropriate permissions.
-* Set up AWS Config service for your chosen region, to see what resources you're using.
 * [Download](https://www.terraform.io/downloads.html) terraform, unpack and put executable on PATH.
+* Configure terraform shell completion: https://www.terraform.io/docs/commands/index.html#shell-tab-completion
 * Install [rbenv](https://github.com/rbenv/rbenv#installation).
 * Install [ruby-build](https://github.com/rbenv/ruby-build) as an rbenv plugin.
 * Run (from a bash shell):
