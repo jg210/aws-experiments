@@ -1,4 +1,11 @@
 * Use terraform.
+  X installation.
+  - rewrite cloudformation template.
+  - remove cloudformation template and steps from README.
+  - configure EIP
+  - fix provider versions.
+  - fix terraform version?
+  - set up state storage.
 
 * Update DNS record with elastic IP address of server.
 
@@ -59,3 +66,5 @@
   X cfn_nag.
   - run aws cloudformation validate-template from travis.
   - https://github.com/Skyscanner/cfripper too?
+
+* "terraform plan" still outputs terminal control sequences if pipe stdout to less.

@@ -10,6 +10,7 @@ The Elastic IP address is not free if the EC2 instance is not running. Either ke
 
 These instructions are for Ubuntu, but should be adaptable to other platforms.
 
+* Download, unpack and put executable on PATH: https://www.terraform.io/downloads.html
 * Install [rbenv](https://github.com/rbenv/rbenv#installation).
 * Install [ruby-build](https://github.com/rbenv/ruby-build) as an rbenv plugin.
 * Configure an AWS IAM user with appropriate permissions.
