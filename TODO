@@ -1,12 +1,12 @@
-* Use terraform.
-  X installation.
-  X rewrite cloudformation template.
-  X remove cloudformation template and steps from README.
-  X configure EIP
-  - some automated tests.
-  - fix provider versions.
-  - fix terraform version?
-  - set up state storage.
+* Automated tests.
+  - is there a useful test to run without having state on travis?
+  - install terraform in travis somehow
+
+* Fix terraform provider versions.
+
+* Fix terraform version?
+
+* Set up terraform state storage.
 
 * Update DNS record with elastic IP address of server.
 
