@@ -35,11 +35,6 @@ To configure emacs:
 
 * Add [melpa](https://www.emacswiki.org/emacs/MELPA) package-source configuration to ~/.emacs
 * From emacs, `M-x list-packages` and install terraform-mode.
-* From command-line, run:
-
-```
-sudo apt-get install yaml-mode
-```
 
 If the set of gem executables is changed, re-run this and check in the result:
 
