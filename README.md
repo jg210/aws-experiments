@@ -1,4 +1,6 @@
-Setting up a (mostly) free-tier AWS system using [CloudFormation](https://aws.amazon.com/cloudformation/).
+Setting up a (mostly) free-tier AWS system using [terraform](https://www.terraform.io/).
+
+Earlier versions of this repo used a [CloudFormation](https://aws.amazon.com/cloudformation/) template instead of terraform.
 
 [![Build Status](https://travis-ci.com/jg210/aws-experiments.svg?branch=master)](https://travis-ci.com/jg210/aws-experiments)
 
@@ -44,39 +46,3 @@ If the set of gem executables is changed, re-run this and check in the result:
 bundler binstubs --all --path .bundle/bin
 ```
 
-To run [cfn_nag](https://github.com/stelligent/cfn_nag) CloudFormation static analysis:
-
-```
-cfn_nag_scan --input-path cloudformation.yaml
-```
-
-To validate template using aws CLI tool:
-
-```
-aws cloudformation validate-template --template-body file://cloudformation.yaml
-```
-
-Upload or create an "aws-experiments" ssh key using EC2 console:
-
-* https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws
-* https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair
-
-To deploy the CloudFormation template:
-
-```
-aws cloudformation create-stack --template-body file://cloudformation.yaml --stack-name aws-experiments
-aws cloudformation wait stack-create-complete --stack-name aws-experiments
-```
-
-To update an existing stack:
-
-```
-aws cloudformation update-stack --template-body file://cloudformation.yaml --stack-name aws-experiments
-aws cloudformation wait stack-update-complete --stack-name aws-experiments
-```
-
-To get the public IP address:
-
-```
-aws cloudformation describe-stacks --stack-name aws-experiments --query 'Stacks[0].Outputs[?OutputKey==`PublicIp`].OutputValue'
-```

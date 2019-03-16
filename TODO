@@ -1,8 +1,9 @@
 * Use terraform.
   X installation.
-  - rewrite cloudformation template.
-  - remove cloudformation template and steps from README.
-  - configure EIP
+  X rewrite cloudformation template.
+  X remove cloudformation template and steps from README.
+  X configure EIP
+  - some automated tests.
   - fix provider versions.
   - fix terraform version?
   - set up state storage.
@@ -18,7 +19,9 @@
 
 * Configure https cert.
 
-* Automate package updates.
+* Periodic automated package updates.
+
+* Move ruby config to separate repo since not used any more.
 
 * Don't allow connections until first set of updates applied.
 
