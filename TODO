@@ -5,8 +5,8 @@
 * Update DNS record with elastic IP address of server.
 
 * Automated tests.
-  - is there a useful test to run without having state on travis?
   - install terraform in travis somehow
+  - terraform validate
 
 * Set up terraform state storage.
 
