@@ -28,5 +28,6 @@ curl https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_am
 unzip "${terraformZip}" -d "${binDir}"
 terraform="${binDir}/terraform"
 "${terraform}" init
+touch ~/.ssh/aws-experiments.pub
 "${terraform}" validate
 "${terraform}" graph -draw-cycles | dot -Tsvg > terraform.svg
