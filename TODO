@@ -1,4 +1,7 @@
 * Automated tests.
+  - commented out since terraform S3 backend needs AWS credentials
+    - this might allow multiple backends?
+      - https://www.monterail.com/blog/chicken-or-egg-terraforms-remote-backend
   - store terraform dependency-graph svg to S3 and link to it from README.md.
   - cache terraform download.
   - logs with timestamps.
