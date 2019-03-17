@@ -1,7 +1,5 @@
 * Fix terraform provider versions.
 
-* Fix terraform version?
-
 * Update DNS record with elastic IP address of server.
   - https://www.terraform.io/docs/providers/http/data_source.html
     - only does GET requests
