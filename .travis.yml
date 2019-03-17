@@ -7,4 +7,5 @@ branches:
   only:
     - master
 script:
+  - sudo apt-get install graphviz
   - bin/travis_tests
