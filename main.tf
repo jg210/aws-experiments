@@ -7,6 +7,8 @@ provider "aws" {
   region = "eu-west-1"
 }
 
+data "aws_availability_zones" "available" {}
+
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
 }
@@ -21,11 +23,11 @@ resource "aws_route" "internet" {
   gateway_id = "${aws_internet_gateway.default.id}"
 }
 
-resource "aws_subnet" "default" {
+resource "aws_subnet" "primary" {
   vpc_id = "${aws_vpc.main.id}"
   cidr_block = "10.0.0.0/24"
   map_public_ip_on_launch = true
-  # TODO Set AZ.
+  availability_zone = "${data.aws_availability_zones.available.names[0]}"
 }
 
 resource "aws_security_group" "default" {
@@ -65,7 +67,7 @@ resource "aws_instance" "server" {
   ami = "${lookup(var.amis, var.aws_region)}"
   key_name = "${aws_key_pair.auth.id}"
   vpc_security_group_ids = ["${aws_security_group.default.id}"]
-  subnet_id = "${aws_subnet.default.id}"
+  subnet_id = "${aws_subnet.primary.id}"
   provisioner "remote-exec" {
     inline = [
       "sudo apt-get -y update",

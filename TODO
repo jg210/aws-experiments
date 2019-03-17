@@ -1,5 +1,3 @@
-* No AZ is specified for the subnet...
-
 * Update DNS record with elastic IP address of server.
   - https://www.terraform.io/docs/providers/http/data_source.html
     - only does GET requests
