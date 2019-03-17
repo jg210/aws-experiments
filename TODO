@@ -1,11 +1,11 @@
+* Set up terraform state storage.
+
 * Automated tests.
-  - store terraform dependency graph svg to s3 and link to it from somewhere.
+  - store terraform dependency-graph svg to S3 and link to it from README.md.
   - cache terraform download.
   - logs with timestamps.
   - travis isn't sending failure emails
     - likely since github "Keep my email address private" is enabled.
-
-* Set up terraform state storage.
 
 * Update DNS record with elastic IP address of server.
   - https://www.terraform.io/docs/providers/http/data_source.html
