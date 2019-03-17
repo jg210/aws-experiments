@@ -1,5 +1,3 @@
-* Fix terraform provider versions.
-
 * No AZ is specified for the subnet...
 
 * Update DNS record with elastic IP address of server.
