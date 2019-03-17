@@ -19,7 +19,7 @@ trap 'backtrace' ERR
 
 ##########################################################
 
-tmpDir=$(mktemp -d)
+tmpDir="$(mktemp -d)"
 trap "rm -fR ${tmpDir}" EXIT
 terraformZip="${tmpDir}/terraform.zip"
 binDir="${tmpDir}/bin"
