@@ -24,6 +24,13 @@ resource "aws_s3_bucket" "aws-experiments-terraform-state" {
     }
 }
 
+resource "aws_s3_bucket" "aws-experiments" {
+    bucket = "aws-experiments"
+    versioning {
+      enabled = false
+    }
+}
+
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
 }
