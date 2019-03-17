@@ -1,5 +1,7 @@
 * Fix terraform provider versions.
 
+* No AZ is specified for the subnet...
+
 * Update DNS record with elastic IP address of server.
   - https://www.terraform.io/docs/providers/http/data_source.html
     - only does GET requests
@@ -8,6 +10,9 @@
 * Automated tests.
   - install terraform in travis somehow
   - terraform validate
+  - resource dependency graph.
+    - use -draw-cycles
+    - link to github repo.
 
 * Set up terraform state storage.
 
