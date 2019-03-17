@@ -1,3 +1,12 @@
+* Update DNS record with elastic IP address of server.
+  - https://www.terraform.io/docs/providers/http/data_source.html
+    - only does GET requests
+  - https://www.terraform.io/docs/providers/external/data_source.html
+
+* Publish Spring app to S3.
+
+* Deploy and start Spring app.
+
 * Automated tests.
   - commented out since terraform S3 backend needs AWS credentials
     - this might allow multiple backends?
@@ -8,15 +17,6 @@
   - travis isn't sending failure emails
     - likely since github "Keep my email address private" is enabled.
 
-* Update DNS record with elastic IP address of server.
-  - https://www.terraform.io/docs/providers/http/data_source.html
-    - only does GET requests
-  - https://www.terraform.io/docs/providers/external/data_source.html
-
-* Publish Spring app to S3.
-
-* Deploy and start Spring app.
-
 * Configure https cert.
 
 * Periodic automated package updates.
@@ -25,7 +25,7 @@
 
 * Don't allow connections until first set of updates applied.
 
-* Wait for server to start up before declaring EC2/stack deployment complete.
+* Wait for server to be start up before declaring deployment complete.
 
 * Redirect http to https.
 
