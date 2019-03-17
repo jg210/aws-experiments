@@ -1,8 +1,3 @@
-* Update DNS record with elastic IP address of server.
-  - https://www.terraform.io/docs/providers/http/data_source.html
-    - only does GET requests
-  - https://www.terraform.io/docs/providers/external/data_source.html
-
 * Automated tests.
   - install terraform in travis somehow
   - terraform validate
@@ -11,6 +6,11 @@
     - link to github repo.
 
 * Set up terraform state storage.
+
+* Update DNS record with elastic IP address of server.
+  - https://www.terraform.io/docs/providers/http/data_source.html
+    - only does GET requests
+  - https://www.terraform.io/docs/providers/external/data_source.html
 
 * Publish Spring app to S3.
 
