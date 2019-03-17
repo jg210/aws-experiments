@@ -4,6 +4,8 @@
   - resource dependency graph.
     - use -draw-cycles
     - link to github repo.
+  - travis isn't sending failure emails
+    - likely since github "Keep my email address private" is enabled.
 
 * Set up terraform state storage.
 

@@ -1,7 +1,5 @@
 Setting up a (mostly) free-tier AWS system using [terraform](https://www.terraform.io/).
 
-Earlier versions of this repo used a [CloudFormation](https://aws.amazon.com/cloudformation/) template instead of terraform.
-
 [![Build Status](https://travis-ci.com/jg210/aws-experiments.svg?branch=master)](https://travis-ci.com/jg210/aws-experiments)
 
 ## Non Free-Tier Resources
@@ -10,12 +8,11 @@ The Elastic IP address is not free if the EC2 instance is not running. Either ke
 
 ## Development Environment
 
-These instructions are for Ubuntu, but should be adaptable to other platforms.
+These instructions are for Ubuntu and bash.
 
 * Create AWS account.
 * Configure an AWS IAM user with appropriate permissions.
-* [Download](https://www.terraform.io/downloads.html) terraform, unpack and put executable on PATH.
-* Configure terraform shell completion: https://www.terraform.io/docs/commands/index.html#shell-tab-completion
+* [Download](https://www.terraform.io/downloads.html) required version of terraform (see [main.tf](main.tf)), unpack and put executable on PATH.
 * Install [rbenv](https://github.com/rbenv/rbenv#installation).
 * Install [ruby-build](https://github.com/rbenv/ruby-build) as an rbenv plugin.
 * Run (from a bash shell):
@@ -25,10 +22,16 @@ sudo apt-get install python3.5-venv
 rbenv install "$(cat .ruby-version)"
 rbenv exec bundle install
 python3.5 -m venv .venv
-. environment # Repeat this every time open new terminal.
+. environment
 pip install --upgrade pip==19.0.3
 pip install -r requirements.txt
 aws configure # eu-west-1, json.
+```
+
+Close and reopen terminal, then just need to run:
+
+```
+. environment
 ```
 
 To configure emacs:

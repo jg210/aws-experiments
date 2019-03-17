@@ -1,10 +1,24 @@
-VIRTUAL_ENV_DISABLE_PROMPT=true
-source .venv/bin/activate
+# -*- mode: shell-script -*-
+export VIRTUAL_ENV_DISABLE_PROMPT=true
+SOURCE_DIR="$(readlink -f "$(dirname "$0")")"
+if [ -e "${SOURCE_DIR}/.venv/bin/activate" ] ; then
+    source "${SOURCE_DIR}/.venv/bin/activate"
+else
+    printf "%s\n" "venv activate script missing - README.md explains how to set up your python environment." > /dev/stderr
+fi
 
-complete -C .venv/bin/aws_completer aws
+if [ -e "${SOURCE_DIR}/.venv/bin/aws_completer" ] ; then
+    complete -C "${SOURCE_DIR}/.venv/bin/aws_completer" "aws"
+fi
 
 if [ -d "${HOME}/.rbenv/bin" ] ; then
    PATH="${HOME}/.rbenv/bin:$PATH"
 fi
 eval "$(rbenv init -)"
-PATH=".bundle/bin:${PATH}"
+
+if which terraform > /dev/null ; then
+    complete -C "$(which terraform)" terraform
+fi
+
+eval "$(rbenv init -)"
+PATH="${SOURCE_DIR}/bin:${SOURCE_DIR}/.bundle/bin:${PATH}"
