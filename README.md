@@ -53,3 +53,5 @@ terraform init
 terraform plan
 terraform deploy
 ```
+
+An S3 bucket is used to store the terraform state. If this bucket doesn't exist yet, temporarily comment out the "backend" configuration in main.tf while deploying and it will be created for you.

@@ -1,13 +1,28 @@
 terraform {
   required_version = "=0.11.13"
+  backend "s3" {
+    bucket = "aws-experiments-terraform-state"
+    key = "default"
+    region = "eu-west-1"
+  }
 }
 
 provider "aws" {
   version = "2.2.0"
-  region = "eu-west-1"
+  region = "${var.aws_region}"
 }
 
 data "aws_availability_zones" "available" {}
+
+resource "aws_s3_bucket" "aws-experiments-terraform-state" {
+    bucket = "aws-experiments-terraform-state"
+    versioning {
+      enabled = true
+    }
+    lifecycle {
+      prevent_destroy = true
+    }
+}
 
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"

@@ -1,5 +1,3 @@
-* Set up terraform state storage.
-
 * Automated tests.
   - store terraform dependency-graph svg to S3 and link to it from README.md.
   - cache terraform download.
