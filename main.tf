@@ -29,6 +29,9 @@ resource "aws_s3_bucket" "aws-experiments" {
     versioning {
       enabled = false
     }
+    lifecycle {
+      prevent_destroy = true
+    }
 }
 
 resource "aws_vpc" "main" {

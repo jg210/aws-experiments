@@ -4,6 +4,12 @@
   - https://www.terraform.io/docs/providers/external/data_source.html
 
 * Publish Spring app to S3.
+  - https://medium.com/@itsdavidthai/comprehensive-aws-ec2-deployment-with-travisci-guide-7cafa9c754fc
+    - add travis IAM user
+      - minimal permissions
+    - create PutObject s3 policy
+    - attach policy to IAM user
+    - give IAM user credentials to travis via env. vars. set in web UI
 
 * Deploy and start Spring app.
 
