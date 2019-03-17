@@ -1,5 +1,5 @@
 * Automated tests.
-  - link to graph from github repo.
+  - store terraform dependency graph svg to s3 and link to it from somewhere.
   - cache terraform download.
   - logs with timestamps.
   - travis isn't sending failure emails
