@@ -14,7 +14,7 @@ These instructions are for Ubuntu and bash.
 * Configure an AWS IAM user with appropriate permissions.
 * [Download](https://www.terraform.io/downloads.html) required version of terraform (see [main.tf](main.tf)), unpack and put executable on PATH.
 * Install [rbenv](https://github.com/rbenv/rbenv#installation).
-* Install [ruby-build](https://github.com/rbenv/ruby-build) as an rbenv plugin.
+* Install [ruby-build](https://github.com/rbenv/ruby-build#installation) as an rbenv plugin.
 * Run (from a bash shell):
 
 ```
