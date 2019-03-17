@@ -1,9 +1,6 @@
 * Automated tests.
-  - install terraform in travis somehow
-  - terraform validate
-  - resource dependency graph.
-    - use -draw-cycles
-    - link to github repo.
+  - link to graph from github repo.
+  - cache terraform download.
   - travis isn't sending failure emails
     - likely since github "Keep my email address private" is enabled.
 
