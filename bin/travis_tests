@@ -4,7 +4,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 set -o errtrace
-
 backtrace() {
     local err="$?"
     set +x
@@ -16,7 +15,9 @@ backtrace() {
     done
     exit "${err}"
 }
-
 trap 'backtrace' ERR
 
+##########################################################
+
+false
 # TODO Write some tests.
