@@ -126,7 +126,7 @@ resource "aws_iam_group_membership" "aws-experiments-upload" {
 data "aws_iam_policy_document" "aws-experiments-upload" {
   statement {
     actions   = ["s3:PutObject"]
-    resources = ["${aws_s3_bucket.aws-experiments.arn}"]
+    resources = ["${aws_s3_bucket.aws-experiments.arn}/artifacts/*"]
   }
 }
 
