@@ -107,3 +107,36 @@ resource "aws_eip" "server" {
   depends_on = ["aws_internet_gateway.default"]
 }
 
+resource "aws_iam_user" "travis" {
+  name = "travis"
+}
+
+resource "aws_iam_access_key" "travis" {
+  user = "${aws_iam_user.travis.name}"
+}
+
+resource "aws_iam_group" "aws-experiments-upload" {
+  name = "aws-experiments-upload"
+}
+
+resource "aws_iam_group_membership" "aws-experiments-upload" {
+  name = "aws-experiments-upload"
+  users = [
+    "${aws_iam_user.travis.name}"
+  ]
+  group = "${aws_iam_group.aws-experiments-upload.name}"
+}
+
+data "aws_iam_policy_document" "aws-experiments-upload" {
+  statement {
+    actions   = ["s3:PutObject"]
+    resources = ["${aws_s3_bucket.aws-experiments.arn}"]
+  }
+}
+
+resource "aws_iam_group_policy" "aws-experiments-upload" {
+  name = "aws-experiments-upload"
+  policy = "${data.aws_iam_policy_document.aws-experiments-upload.json}"
+  group = "${aws_iam_group.aws-experiments-upload.id}"
+}
+
