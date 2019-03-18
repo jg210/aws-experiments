@@ -1,9 +1,10 @@
 * Update DNS record with elastic IP address of server.
-  - https://www.terraform.io/docs/providers/http/data_source.html
-    - only does GET requests
-  - https://www.terraform.io/docs/providers/external/data_source.html
+  - https://www.terraform.io/docs/provisioners/local-exec.html
 
-* Deploy and start Spring app.
+* Deploy and start spring-experiments app.
+  - install jar from S3
+  - add service that runs jar
+  - configure nginx to proxy to the spring app.
 
 * Automated tests.
   - commented out since terraform S3 backend needs AWS credentials
