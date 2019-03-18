@@ -111,10 +111,6 @@ resource "aws_iam_user" "travis" {
   name = "travis"
 }
 
-resource "aws_iam_access_key" "travis" {
-  user = "${aws_iam_user.travis.name}"
-}
-
 resource "aws_iam_group" "aws-experiments-upload" {
   name = "aws-experiments-upload"
 }
