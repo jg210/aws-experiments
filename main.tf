@@ -1,4 +1,4 @@
-terraform {
+ terraform {
   required_version = "=0.11.13"
   backend "s3" {
     bucket = "aws-experiments-terraform-state"
@@ -94,10 +94,7 @@ resource "aws_instance" "server" {
   vpc_security_group_ids = ["${aws_security_group.default.id}"]
   subnet_id = "${aws_subnet.primary.id}"
   provisioner "remote-exec" {
-    inline = [
-      "sudo apt-get -y update",
-      "sudo apt-get -y install nginx"
-    ]
+    scripts = [ "resources/bin/provision" ]
   }
 }
 
