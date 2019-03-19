@@ -93,6 +93,7 @@ resource "aws_instance" "server" {
   key_name = "${aws_key_pair.auth.id}"
   vpc_security_group_ids = ["${aws_security_group.default.id}"]
   subnet_id = "${aws_subnet.primary.id}"
+  iam_instance_profile = "${aws_iam_instance_profile.server.id}"
   provisioner "remote-exec" {
     scripts = [ "resources/bin/provision" ]
   }
@@ -122,7 +123,7 @@ resource "aws_iam_group_membership" "aws-experiments-upload" {
 
 data "aws_iam_policy_document" "aws-experiments-upload" {
   statement {
-    actions   = ["s3:PutObject"]
+    actions = ["s3:PutObject"]
     resources = ["${aws_s3_bucket.aws-experiments.arn}/artifacts/*"]
   }
 }
@@ -133,3 +134,35 @@ resource "aws_iam_group_policy" "aws-experiments-upload" {
   group = "${aws_iam_group.aws-experiments-upload.id}"
 }
 
+data "aws_iam_policy_document" "server_role" {
+  statement {
+    actions = ["sts:AssumeRole"]
+    principals {
+      type = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
+  }
+}
+
+resource "aws_iam_role" "server" {
+  name = "server_role"
+  assume_role_policy = "${data.aws_iam_policy_document.server_role.json}"
+}
+
+resource "aws_iam_instance_profile" "server" {
+    name = "server"
+    role = "${aws_iam_role.server.name}"
+}
+
+data "aws_iam_policy_document" "aws-experiments-download" {
+  statement {
+    actions = ["s3:GetObject"]
+    resources = ["${aws_s3_bucket.aws-experiments.arn}/artifacts/*"]
+  }
+}
+
+resource "aws_iam_role_policy" "aws-experiments-download" {
+  name = "aws-experiments-download"
+  policy = "${data.aws_iam_policy_document.aws-experiments-download.json}"
+  role = "${aws_iam_role.server.id}"
+}

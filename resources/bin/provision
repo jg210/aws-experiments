@@ -18,4 +18,29 @@ backtrace() {
 trap 'backtrace' ERR
 
 sudo apt-get -y update
+sudo apt-get install -y default-jre
+springExperimentsDir=/opt/spring-experiments
+sudo mkdir -p "${springExperimentsDir}"
+jar="${springExperimentsDir}/spring-experiments.jar"
+curl --fail --location https://s3-eu-west-1.amazonaws.com/aws-experiments/artifacts/spring-experiments/spring-experiments-0.0.1-SNAPSHOT.jar | sudo tee "${jar}" > /dev/null
+springExperimentsUser=spring-experiments
+sudo useradd "${springExperimentsUser}"
+systemdUnit=/etc/systemd/system/spring-experiments.service
+sudo tee "${systemdUnit}" > /dev/null <<EOF
+[Unit]
+Description=spring-experiments
+After=syslog.target
+
+[Service]
+User=${springExperimentsUser}
+ExecStart=/usr/bin/java -jar "${jar}"
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
+EOF
+sudo systemctl daemon-reload
+sudo systemctl enable spring-experiments.service
 sudo apt-get -y install nginx
+# TODO configure nginx to proxy to spring app.
+# TODO restart nginx
