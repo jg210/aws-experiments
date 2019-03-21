@@ -59,6 +59,20 @@ log "enabling spring-experiments.service"
 sudo systemctl enable spring-experiments.service
 log "installing nginx."
 sudo apt-get -y install nginx
-# TODO configure nginx to proxy to spring app.
-# TODO restart nginx
+log "configuring nginx."
+sudo tee /etc/nginx/sites-enabled/default > /dev/null <<EOF
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+    server_name _;
+    location / {
+        proxy_pass http://localhost:8080;
+    }
+}
+EOF
+log "restarting nginx."
+sudo service nginx restart
+# TODO Wait for nginx to start.
 log "done."
