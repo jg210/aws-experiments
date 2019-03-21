@@ -17,15 +17,29 @@ backtrace() {
 }
 trap 'backtrace' ERR
 
+log() {
+    printf "[%s %s] %s\n" \
+	   "$(date '+%Y-%m-%d %H:%M:%S' --utc)" \
+	   "$(basename -- "$0")" \
+	   "$*"
+}
+
+log "updating apt packages"
 sudo apt-get -y update
-sudo apt-get install -y default-jre
+log "installing apt packages"
+sudo apt-get install -y default-jre awscli
 springExperimentsDir=/opt/spring-experiments
 sudo mkdir -p "${springExperimentsDir}"
 jar="${springExperimentsDir}/spring-experiments.jar"
-curl --fail --location https://s3-eu-west-1.amazonaws.com/aws-experiments/artifacts/spring-experiments/spring-experiments-0.0.1-SNAPSHOT.jar | sudo tee "${jar}" > /dev/null
+log "downloading: ${jar}"
+jarTmp="/tmp/spring-experiments.jar"
+aws s3 cp s3://aws-experiments/artifacts/spring-experiments/spring-experiments-0.0.1-SNAPSHOT.jar "${jarTmp}"
+sudo mv "${jarTmp}" "${jar}"
 springExperimentsUser=spring-experiments
+log "creating user: ${springExperimentsUser}"
 sudo useradd "${springExperimentsUser}"
 systemdUnit=/etc/systemd/system/spring-experiments.service
+log "creating: ${systemdUnit}"
 sudo tee "${systemdUnit}" > /dev/null <<EOF
 [Unit]
 Description=spring-experiments
@@ -39,8 +53,12 @@ SuccessExitStatus=143
 [Install]
 WantedBy=multi-user.target
 EOF
+log "reloading systemd configuration."
 sudo systemctl daemon-reload
+log "enabling spring-experiments.service"
 sudo systemctl enable spring-experiments.service
+log "installing nginx."
 sudo apt-get -y install nginx
 # TODO configure nginx to proxy to spring app.
 # TODO restart nginx
+log "done."
