@@ -57,6 +57,8 @@ log "reloading systemd configuration."
 sudo systemctl daemon-reload
 log "enabling spring-experiments.service"
 sudo systemctl enable spring-experiments.service
+log "starting spring-experiments.service"
+sudo systemctl start spring-experiments.service
 log "installing nginx."
 sudo apt-get -y install nginx
 log "configuring nginx."
