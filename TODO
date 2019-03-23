@@ -1,3 +1,16 @@
+* default-jre and awscli apt packages aren't always available.
+  - sometimes deployment works, sometimes it doesn't
+
+aws_instance.server (remote-exec): Package awscli is not available, but is referred to by another package.
+aws_instance.server (remote-exec): This may mean that the package is missing, has been obsoleted, or
+aws_instance.server (remote-exec): is only available from another source
+
+aws_instance.server (remote-exec): E: Unable to locate package default-jre
+aws_instance.server (remote-exec): E: Package 'awscli' has no installation candidate
+aws_instance.server (remote-exec): *********************************************************************
+
+aws_instance.server (remote-exec): ERROR: /tmp/terraform_1379405514.sh:30 exited with code: 100
+
 * Packer?
 
 * Configuration Mangement system not shell script.
@@ -15,6 +28,9 @@
 * Configure https cert.
 
 * Terraform replaces EIP if taint ec2 server.
+
+* Terraform only asks for ssh keychain password when needs it, but only gives you five minutes to supply password.
+  - unlock keychain earlier.
 
 * Periodic automated package updates.
 
