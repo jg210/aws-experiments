@@ -15,6 +15,7 @@ These instructions are for Ubuntu and bash.
 * [Download](https://www.terraform.io/downloads.html) required version of terraform (see [main.tf](main.tf)), unpack and put executable on PATH.
 * Install [rbenv](https://github.com/rbenv/rbenv#installation).
 * Install [ruby-build](https://github.com/rbenv/ruby-build#installation) as an rbenv plugin.
+* Create ~/.dns-api-password and ~/.dns-api-url with appropriate content and permissions etc.
 * Run (from a bash shell):
 
 ```

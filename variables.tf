@@ -19,3 +19,11 @@ variable "amis" {
     eu-west-1 = "ami-08d658f84a6d84a80"
   }
 }
+
+variable "domain" {
+  default = "jeremygreen.me.uk"
+}
+
+variable "subdomain" {
+  default = "aws"
+}

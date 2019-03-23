@@ -103,6 +103,9 @@ resource "aws_eip" "server" {
   vpc = true
   instance = "${aws_instance.server.id}"
   depends_on = ["aws_internet_gateway.default"]
+  provisioner "local-exec" {
+    command = "curl --verbose --data-urlencode \"domain=${var.domain}\" --data-urlencode \"password@$${HOME}/.dns-api-password\" --data-urlencode \"command=REPLACE ${var.subdomain} 60 A ${aws_eip.server.public_ip}\" \"$(cat $${HOME}/.dns-api-url)\""
+  }
 }
 
 resource "aws_iam_user" "travis" {

@@ -1,6 +1,3 @@
-* Update DNS record with elastic IP address of server.
-  - https://www.terraform.io/docs/provisioners/local-exec.html
-
 * Packer?
 
 * Configuration Mangement system not shell script.
@@ -17,6 +14,8 @@
 
 * Configure https cert.
 
+* Terraform replaces EIP if taint ec2 server.
+
 * Periodic automated package updates.
 
 * Move ruby config to separate repo since not used any more.
@@ -24,6 +23,8 @@
 * Don't allow connections until first set of updates applied.
 
 * Wait for server to be start up before declaring deployment complete.
+
+* Does nginx need to know its domain name?
 
 * Redirect http to https.
 
@@ -35,6 +36,8 @@
   - configure cloudwatch?
     - would lose service if AZ fails
     - IP address retained.
+
+* Add link to hosted site to README.md.
 
 * NTP
   - ntp.ubuntu.com inaccessible from the EC2 instance.
