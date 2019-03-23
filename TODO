@@ -32,6 +32,9 @@ aws_instance.server (remote-exec): ERROR: /tmp/terraform_1379405514.sh:30 exited
 * Terraform only asks for ssh keychain password when needs it, but only gives you five minutes to supply password.
   - unlock keychain earlier.
 
+* Destroy ec2 instance only after creating new one?
+  - will cost a little money.
+
 * Periodic automated package updates.
 
 * Move ruby config to separate repo since not used any more.
