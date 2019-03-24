@@ -31,7 +31,7 @@ sudo apt-get -y update
 log "installing apt packages."
 sudo apt-get install -y default-jre python3-pip
 log "installing: awscli"
-pip3 install awscli==1.16.130 --upgrade --user
+pip3 install --upgrade --user --disable-pip-version-check awscli==1.16.130
 export PATH="~/.local/bin/:${PATH}"
 log "setting up spring-experiments app..."
 springExperimentsDir=/opt/spring-experiments
@@ -40,6 +40,7 @@ jar="${springExperimentsDir}/spring-experiments.jar"
 log "downloading: ${jar}"
 jarTmp="/tmp/spring-experiments.jar"
 aws s3 cp s3://aws-experiments/artifacts/spring-experiments/spring-experiments-0.0.1-SNAPSHOT.jar "${jarTmp}"
+sudo chown root.root "${jarTmp}"
 sudo mv "${jarTmp}" "${jar}"
 springExperimentsUser=spring-experiments
 log "creating user: ${springExperimentsUser}"
