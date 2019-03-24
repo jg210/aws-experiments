@@ -24,10 +24,16 @@ log() {
 	   "$*"
 }
 
-log "updating apt packages"
+log "updating apt packages (to update apt sources)."
 sudo apt-get -y update
-log "installing apt packages"
-sudo apt-get install -y default-jre awscli
+log "updating apt packages again (with new apt sources)."
+sudo apt-get -y update
+log "installing apt packages."
+sudo apt-get install -y default-jre python3-pip
+log "installing: awscli"
+pip3 install awscli==1.16.130 --upgrade --user
+export PATH="~/.local/bin/:${PATH}"
+log "setting up spring-experiments app..."
 springExperimentsDir=/opt/spring-experiments
 sudo mkdir -p "${springExperimentsDir}"
 jar="${springExperimentsDir}/spring-experiments.jar"
@@ -55,13 +61,13 @@ WantedBy=multi-user.target
 EOF
 log "reloading systemd configuration."
 sudo systemctl daemon-reload
-log "enabling spring-experiments.service"
+log "enabling: spring-experiments.service"
 sudo systemctl enable spring-experiments.service
-log "starting spring-experiments.service"
+log "starting: spring-experiments.service"
 sudo systemctl start spring-experiments.service
-log "installing nginx."
+log "installing: nginx"
 sudo apt-get -y install nginx
-log "configuring nginx."
+log "configuring: nginx"
 sudo tee /etc/nginx/sites-enabled/default > /dev/null <<EOF
 server {
     listen 80 default_server;
@@ -74,7 +80,7 @@ server {
     }
 }
 EOF
-log "restarting nginx."
+log "restarting: nginx"
 sudo service nginx restart
 # TODO Wait for nginx to start.
 log "done."
