@@ -1,6 +1,6 @@
 * Packer?
 
-* Configuration Mangement system not shell script.
+* Configuration management system, not shell script.
 
 * Automated tests.
   - commented out since terraform S3 backend needs AWS credentials
@@ -26,11 +26,7 @@
 
 * Move ruby config to separate repo since not used any more.
 
-* Don't allow connections until first set of updates applied.
-
 * Wait for server to be start up before declaring deployment complete.
-
-* Does nginx need to know its domain name?
 
 * Redirect http to https.
 
