@@ -1,4 +1,4 @@
-* Packer?
+* Packer.
 
 * Configuration management system, not shell script.
 
@@ -26,7 +26,7 @@
 
 * Move ruby config to separate repo since not used any more.
 
-* Wait for server to be start up before declaring deployment complete.
+* Wait for server to start up before declaring deployment complete.
 
 * Redirect http to https.
 
@@ -67,10 +67,5 @@
 * Wrap environment setup in scripts.
 
 * Tighten up egress permissions.
-
-* Static analysis.
-  X cfn_nag.
-  - run aws cloudformation validate-template from travis.
-  - https://github.com/Skyscanner/cfripper too?
 
 * "terraform plan" still outputs terminal control sequences if pipe stdout to less.
