@@ -1,3 +1,5 @@
+* aws ssh key resource prevents deployment from multiple hosts.
+
 * Packer.
 
 * Configuration management system, not shell script.

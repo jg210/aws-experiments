@@ -12,7 +12,7 @@ These instructions are for Ubuntu and bash.
 
 * Create AWS account.
 * Configure an AWS IAM user with appropriate permissions.
-* [Download](https://www.terraform.io/downloads.html) required version of terraform (see [main.tf](main.tf)), unpack and put executable on PATH.
+* [Download](https://www.terraform.io/downloads.html) required version of terraform (see [main.tf](terraform/main.tf)), unpack and put executable on PATH.
 * Install [rbenv](https://github.com/rbenv/rbenv#installation).
 * Install [ruby-build](https://github.com/rbenv/ruby-build#installation) as an rbenv plugin.
 * Create ~/.dns-api-password and ~/.dns-api-url with appropriate content and permissions etc.
@@ -50,6 +50,7 @@ bundler binstubs --all --path .bundle/bin
 To deploy:
 
 ```
+cd terraform
 terraform init
 terraform plan
 terraform deploy
