@@ -1,5 +1,6 @@
-Setting up a (mostly) free-tier AWS system using [terraform](https://www.terraform.io/).
+Configures a (mostly) free-tier AWS system using [terraform](https://www.terraform.io/) to host [this](https://github.com/jg210/spring-experiments) [React](https://reactjs.org/) and [Spring Framework](https://spring.io/) application.
 
+http://aws.jeremygreen.me.uk
 [![Build Status](https://travis-ci.com/jg210/aws-experiments.svg?branch=master)](https://travis-ci.com/jg210/aws-experiments)
 
 ## Non Free-Tier Resources
