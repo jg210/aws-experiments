@@ -95,7 +95,7 @@ resource "aws_instance" "server" {
   subnet_id = "${aws_subnet.primary.id}"
   iam_instance_profile = "${aws_iam_instance_profile.server.id}"
   provisioner "remote-exec" {
-    scripts = [ "resources/bin/provision" ]
+    scripts = [ "../resources/bin/provision" ]
   }
 }
 
