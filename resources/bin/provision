@@ -25,12 +25,14 @@ log() {
 }
 
 apt_get_wrapper() {
-    UCF_FORCE_CONFOLD=1 DEBIAN_FRONTEND=noninteractive \
-		     sudo apt-get \
-                     -o Dpkg::Options::="--force-confdef" \
-                     -o Dpkg::Options::="--force-confold" \
-                     -y \
-                     "$@" < /dev/null
+    sudo \
+	UCF_FORCE_CONFOLD=1 \
+	DEBIAN_FRONTEND=noninteractive \
+	apt-get \
+        -o Dpkg::Options::="--force-confdef" \
+        -o Dpkg::Options::="--force-confold" \
+        -y \
+        "$@" < /dev/null
 }
 
 export TERM=dumb
