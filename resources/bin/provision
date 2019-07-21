@@ -33,7 +33,7 @@ apt_get_wrapper() {
                      "$@" < /dev/null
 }
 
-export DEBIAN_FRONTEND=noninteractive
+export TERM=dumb
 log "updating apt packages (to update apt sources)."
 apt_get_wrapper update
 log "updating apt packages again (with new apt sources)."
