@@ -24,6 +24,7 @@ log() {
 	   "$*"
 }
 
+export DEBIAN_FRONTEND=noninteractive
 log "updating apt packages (to update apt sources)."
 sudo apt-get -y update
 log "updating apt packages again (with new apt sources)."
