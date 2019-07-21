@@ -30,7 +30,7 @@ sudo apt-get -y update
 log "updating apt packages again (with new apt sources)."
 sudo apt-get -y update
 log "installing apt packages."
-sudo apt-get install -y default-jre python3-pip
+sudo apt-get install -y -o Dpkg::Options::="--force-confnew" default-jre python3-pip
 log "installing: awscli"
 pip3 install --upgrade --user --disable-pip-version-check awscli==1.16.130
 export PATH="~/.local/bin/:${PATH}"
@@ -68,7 +68,7 @@ sudo systemctl enable spring-experiments.service
 log "starting: spring-experiments.service"
 sudo systemctl start spring-experiments.service
 log "installing: nginx"
-sudo apt-get -y install nginx
+sudo apt-get -y -o Dpkg::Options::="--force-confnew" install nginx
 log "configuring: nginx"
 sudo tee /etc/nginx/sites-enabled/default > /dev/null <<EOF
 server {
