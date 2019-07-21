@@ -11,7 +11,7 @@ backtrace() {
     printf "ERROR: %s:%i exited with code: %s\n\n" "${BASH_SOURCE[0]}" "${BASH_LINENO[0]}" "${err}"
     printf "%s\n\n" "${BASH_COMMAND:-}"
     for (( i = 0 ; i < ${#FUNCNAME[@]} - 1 ; i++ )) ; do
-	printf "%-50s  %s:%i\n" "${FUNCNAME[$i+1]}()" "${BASH_SOURCE[$i+1]}" "${BASH_LINENO[$i]}"
+        printf "%-50s  %s:%i\n" "${FUNCNAME[$i+1]}()" "${BASH_SOURCE[$i+1]}" "${BASH_LINENO[$i]}"
     done
     exit "${err}"
 }
@@ -19,18 +19,27 @@ trap 'backtrace' ERR
 
 log() {
     printf "[%s %s] %s\n" \
-	   "$(date '+%Y-%m-%d %H:%M:%S' --utc)" \
-	   "$(basename -- "$0")" \
-	   "$*"
+           "$(date '+%Y-%m-%d %H:%M:%S' --utc)" \
+           "$(basename -- "$0")" \
+           "$*"
+}
+
+apt_get_wrapper() {
+    UCF_FORCE_CONFOLD=1 DEBIAN_FRONTEND=noninteractive \
+		     sudo apt-get \
+                     -o Dpkg::Options::="--force-confdef" \
+                     -o Dpkg::Options::="--force-confold" \
+                     -y \
+                     "$@" < /dev/null
 }
 
 export DEBIAN_FRONTEND=noninteractive
 log "updating apt packages (to update apt sources)."
-sudo apt-get -y update
+apt_get_wrapper update
 log "updating apt packages again (with new apt sources)."
-sudo apt-get -y update
+apt_get_wrapper update
 log "installing apt packages."
-sudo apt-get install -y -o Dpkg::Options::="--force-confnew" default-jre python3-pip
+apt_get_wrapper install default-jre python3-pip
 log "installing: awscli"
 pip3 install --upgrade --user --disable-pip-version-check awscli==1.16.130
 export PATH="~/.local/bin/:${PATH}"
@@ -68,7 +77,7 @@ sudo systemctl enable spring-experiments.service
 log "starting: spring-experiments.service"
 sudo systemctl start spring-experiments.service
 log "installing: nginx"
-sudo apt-get -y -o Dpkg::Options::="--force-confnew" install nginx
+apt_get_wrapper install nginx
 log "configuring: nginx"
 sudo tee /etc/nginx/sites-enabled/default > /dev/null <<EOF
 server {
