@@ -3,7 +3,7 @@ http://aws.jeremygreen.me.uk
 Configures a (mostly) free-tier AWS system using [terraform](https://www.terraform.io/) to host the [spring-experiments](https://github.com/jg210/spring-experiments) application.
 
 * The spring-experiments app is built using a [travis-ci job](https://travis-ci.com/jg210/spring-experiments) and the jar is pushed into an AWS S3 bucket.
-* The terraform scripts in this repo create an EC2 instance,  configure it to run the jar (behind an nginx proxy) and update the site's DNS record.
+* The [terraform scripts](terraform) in this repo create an EC2 instance,  configure it to run the jar (behind an nginx proxy) and update the site's DNS record.
 * Staying within the free tier means there's no load balancer, just one EC2 instance behind an elastic IP address.
 
 [![Build Status](https://travis-ci.com/jg210/aws-experiments.svg?branch=master)](https://travis-ci.com/jg210/aws-experiments)
