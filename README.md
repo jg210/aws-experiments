@@ -1,9 +1,9 @@
-http://aws.jeremygreen.me.uk
+http://aws-ec2.jeremygreen.me.uk
 
 Configures a (mostly) free-tier AWS system using [terraform](https://www.terraform.io/) to host the [spring-experiments](https://github.com/jg210/spring-experiments) application.
 
 * The spring-experiments app is built using a [travis-ci job](https://travis-ci.com/jg210/spring-experiments) and the jar is pushed into an AWS S3 bucket.
-* The [terraform scripts](terraform) in this repo create an EC2 instance,  configure it to run the jar (behind an nginx proxy) and update the [site](http://aws.jeremygreen.me.uk)'s DNS record.
+* The [terraform scripts](terraform) in this repo create an EC2 instance,  configure it to run the jar (behind an nginx proxy) and update the [site](http://aws-ec2.jeremygreen.me.uk)'s DNS record.
 * Staying within the free tier means there's no load balancer, just one EC2 instance behind an elastic IP address.
 
 [![Build Status](https://travis-ci.com/jg210/aws-experiments.svg?branch=master)](https://travis-ci.com/jg210/aws-experiments)
@@ -18,7 +18,10 @@ These instructions are for Ubuntu and bash.
 
 * Create AWS account.
 * Configure an AWS IAM user with appropriate permissions.
-* [Download](https://www.terraform.io/downloads.html) required version of terraform (see [main.tf](terraform/main.tf)), unpack and put executable on PATH.
+* [Download](https://www.terraform.io/downloads.html) required version of terraform (see [main.tf](terraform/main.tf)).
+* Unpack terraform zip.
+* Rename terraform executable to e.g. terraform-1.2.3.
+* Put terraform executable on PATH.
 * Create ~/.dns-api-password and ~/.dns-api-url with appropriate content and permissions etc.
 * Run (from a bash shell):
 

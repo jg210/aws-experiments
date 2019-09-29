@@ -1,8 +1,17 @@
-* aws ssh key resource prevents deployment from multiple hosts.
+* API gateway/lambda function deployment.
+  - lambda function
+  - proxying API
+    - make sure API is rate-limited.
+      - what is worst-case cost?
+  - deployment to production stage
+  - custom domain name - aws
+  - add links etc. to README
+  - remove manually-configured APIs
+  - http to https redirection
+    - would need cloudfront?
+      - https://stackoverflow.com/a/47373353
 
-* Packer.
-
-* Configuration management system, not shell script.
+* Automated staged deployment.
 
 * Automated tests.
   - https://www.terraform.io/docs/github-actions/getting-started/index.html?
@@ -15,60 +24,53 @@
   - travis isn't sending failure emails
     - likely since github "Keep my email address private" is enabled.
 
-* Configure https cert.
-
-* Terraform replaces EIP if taint ec2 server.
-
 * Terraform only asks for ssh keychain password when needs it, but only gives you five minutes to supply password.
   - unlock keychain earlier.
 
-* Destroy ec2 instance only after creating new one?
-  - will cost a little money.
-
-* Periodic automated package updates.
+* AWS ssh key resource prevents deployment from multiple hosts.
 
 * Move ruby config to separate repo since not used any more.
 
-* Wait for server to start up before declaring deployment complete.
+* Wrap environment setup in scripts.
 
-* Redirect http to https.
+* "terraform plan" still outputs terminal control sequences if pipe stdout to less.
 
-* Automatic restarts on EC2 failure
-  - configure autoscaling group?
-    - one subnet per AZ
-    - one instance max to stay within free tier
-    - have to use a hack to keep same Elastic IP address when restart.
-  - configure cloudwatch?
-    - would lose service if AZ fails
-    - IP address retained.
-
-* Add link to hosted site to README.md.
-
-* NTP
-  - ntp.ubuntu.com inaccessible from the EC2 instance.
-    - errors in syslog
-  - amazon provide 169.254.169.123
-    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html
+* EC2 improvements.
+  - packer.
+  - configuration management system, not shell script.
+  - https
+  - redirect http to https.
+  - wait for server to start up before declaring deployment complete.
+  - destroy ec2 instance only after creating new one?
+    - will cost a little money.
+  - periodic automated package updates.
+  - terraform replaces EIP if taint ec2 server.
+  - tighten up egress permissions.
+  - automatic restarts on EC2 failure
+    - configure autoscaling group?
+      - one subnet per AZ
+      - one instance max to stay within free tier
+      - have to use a hack to keep same Elastic IP address when restart.
+    - configure cloudwatch?
+      - would lose service if AZ fails
+      - IP address retained.
+  - NTP
+    - ntp.ubuntu.com inaccessible from the EC2 instance.
+      - errors in syslog
+    - amazon provide 169.254.169.123
+      - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html
 
 * EC2 cloudformation config only allows one ssh public key per instance...
   - https://stackoverflow.com/questions/24409095/create-an-ec2-instance-with-multiple-key-pairs
-  - so how are you supposed to log in from multiple home directories?
+  - so how can you log in from multiple home directories?
     - sharing a private key is not acceptable, especially not between users.
     - using parameter means could have one instance per ssh key, but that's not useful.
     - reupload key each time change home directories?
     - generate new key each time deploy instance, throwing away as soon as have provisioned instance properly.
     - build and deploy AMI containing public keys
 
-* Staging and production environments?
-
-* Automated deployments.
+* Automated EC2 deployments.
   - would need to do things like this to have python and ruby in travis.
     - https://github.com/travis-ci/travis-ci/issues/4090
   - a docker-based testing platform would be more convenient.
   - generate change set on branches don't deploy from.
-
-* Wrap environment setup in scripts.
-
-* Tighten up egress permissions.
-
-* "terraform plan" still outputs terminal control sequences if pipe stdout to less.

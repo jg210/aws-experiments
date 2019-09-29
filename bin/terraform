@@ -1,0 +1,6 @@
+#!/bin/bash
+scriptDir="$(dirname "$0")"
+. "${scriptDir}/.common.sh" 
+
+terraformVersion="$(cat "${scriptDir}/../terraform/main.tf" | egrep '^ *required_version = ' | egrep --only-matching '".*" *$' | egrep --only-matching '[.0-9]*')"
+exec "terraform-${terraformVersion}" "$@"

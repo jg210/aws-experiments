@@ -24,6 +24,6 @@ variable "domain" {
   default = "jeremygreen.me.uk"
 }
 
-variable "subdomain" {
-  default = "aws"
+variable "subdomain_ec2" {
+  default = "aws-ec2"
 }
