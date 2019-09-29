@@ -1,5 +1,6 @@
 * API gateway/lambda function deployment.
   - use aws-ec2 not aws for the EC2 deployment.
+  - move ec2 resources into new file.
   - lambda function
   - proxying API
     - make sure API is rate-limited.
