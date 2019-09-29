@@ -1,12 +1,11 @@
 * API gateway/lambda function deployment.
-  - CNAME from aws-2 to aws.
-  - change github to use aws-2 URL.
+  - use aws-ec2 not aws for the EC2 deployment.
   - lambda function
   - proxying API
     - make sure API is rate-limited.
       - what is worst-case cost?
   - deployment to production stage
-  - custom domain name
+  - custom domain name - aws
   - update aws-1 CNAME DNS record
   - add links etc. to README
   - remove manually-configured APIs
