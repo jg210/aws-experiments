@@ -1,13 +1,10 @@
 * API gateway/lambda function deployment.
-  - use aws-ec2 not aws for the EC2 deployment.
-  - move ec2 resources into new file.
   - lambda function
   - proxying API
     - make sure API is rate-limited.
       - what is worst-case cost?
   - deployment to production stage
   - custom domain name - aws
-  - update aws-1 CNAME DNS record
   - add links etc. to README
   - remove manually-configured APIs
   - http to https redirection
