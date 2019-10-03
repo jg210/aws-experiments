@@ -1,12 +1,12 @@
 * API gateway/lambda function deployment.
-  - lambda function
-  - proxying API
-    - make sure API is rate-limited.
-      - what is worst-case cost?
-  - deployment to production stage
-  - custom domain name - aws
-  - add links etc. to README
-  - remove manually-configured APIs
+  X lambda function
+  X proxying API
+  X deployment to production stage
+  X API rate-limiting
+  X custom domain name
+  X update DNS record
+  X add links etc. to README
+  - document how to create certificate
   - http to https redirection
     - would need cloudfront?
       - https://stackoverflow.com/a/47373353
