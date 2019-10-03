@@ -70,6 +70,9 @@ resource "aws_api_gateway_domain_name" "api" {
   endpoint_configuration {
     types = ["REGIONAL"]
   }
+  provisioner "local-exec" {
+    command = "curl --verbose --data-urlencode \"domain=${var.domain}\" --data-urlencode \"password@$${HOME}/.dns-api-password\" --data-urlencode \"command=REPLACE ${var.subdomain_api} 60 CNAME ${aws_api_gateway_domain_name.api.regional_domain_name}.\" \"$(cat $${HOME}/.dns-api-url)\""
+  }
 }
 
 resource "aws_api_gateway_base_path_mapping" "api" {

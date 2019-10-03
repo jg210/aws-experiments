@@ -4,8 +4,8 @@
   X deployment to production stage
   X API rate-limiting
   X custom domain name
-  - update DNS record
-  - add links etc. to README
+  X update DNS record
+  X add links etc. to README
   - document how to create certificate
   - http to https redirection
     - would need cloudfront?
