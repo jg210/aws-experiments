@@ -2,7 +2,7 @@
   X lambda function
   X proxying API
   X deployment to production stage
-  - API rate-limiting not getting configured.
+  X API rate-limiting.
   - custom domain name
     - https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name.html
     - aws
