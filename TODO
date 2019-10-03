@@ -3,6 +3,7 @@
   X proxying API
   X deployment to production stage
   X API rate-limiting.
+  - endpoint only works if path is non-empty, despite proxy_root resources.
   - custom domain name
     - https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name.html
     - aws
