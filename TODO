@@ -1,12 +1,13 @@
 * API gateway/lambda function deployment.
-  - lambda function
-  - proxying API
-    - make sure API is rate-limited.
-      - what is worst-case cost?
-  - deployment to production stage
-  - custom domain name - aws
+  X lambda function
+  X proxying API
+  X deployment to production stage
+  - API rate-limiting not getting configured.
+  - custom domain name
+    - https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name.html
+    - aws
+    - document how to create certificate
   - add links etc. to README
-  - remove manually-configured APIs
   - http to https redirection
     - would need cloudfront?
       - https://stackoverflow.com/a/47373353
