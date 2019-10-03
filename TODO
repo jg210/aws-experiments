@@ -2,12 +2,11 @@
   X lambda function
   X proxying API
   X deployment to production stage
-  X API rate-limiting.
-  - custom domain name
-    - https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name.html
-    - aws
-    - document how to create certificate
+  X API rate-limiting
+  X custom domain name
+  - update DNS record
   - add links etc. to README
+  - document how to create certificate
   - http to https redirection
     - would need cloudfront?
       - https://stackoverflow.com/a/47373353

@@ -27,3 +27,7 @@ variable "domain" {
 variable "subdomain_ec2" {
   default = "aws-ec2"
 }
+
+variable "subdomain_api" {
+  default = "aws"
+}
