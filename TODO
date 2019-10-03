@@ -11,6 +11,8 @@
     - would need cloudfront?
       - https://stackoverflow.com/a/47373353
 
+* Move aws_availability_zones from ec2.tf to vpc.tf.
+
 * Automated staged deployment.
 
 * Automated tests.
