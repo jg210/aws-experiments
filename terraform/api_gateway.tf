@@ -40,7 +40,7 @@ resource "aws_api_gateway_integration" "lambda_root" {
   uri = "${aws_lambda_function.hello.invoke_arn}"
  }
 
-  resource "aws_api_gateway_deployment" "api_production" {
+resource "aws_api_gateway_deployment" "api_production" {
   depends_on = [
     "aws_api_gateway_integration.lambda",
     "aws_api_gateway_integration.lambda_root"
