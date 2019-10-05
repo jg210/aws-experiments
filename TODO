@@ -1,17 +1,8 @@
-* API gateway/lambda function deployment.
-  X lambda function
-  X proxying API
-  X deployment to production stage
-  X API rate-limiting
-  X custom domain name
-  X update DNS record
-  X add links etc. to README
-  - document how to create certificate
-  - http to https redirection
-    - would need cloudfront?
-      - https://stackoverflow.com/a/47373353
-
 * Move aws_availability_zones from ec2.tf to vpc.tf.
+
+* http to https redirection for API gateway.
+  - would need cloudfront?
+    - https://stackoverflow.com/a/47373353
 
 * Automated staged deployment.
 
