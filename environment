@@ -9,7 +9,5 @@ fi
 if [ -e "${SOURCE_DIR}/.venv/bin/aws_completer" ] ; then
     complete -C "${SOURCE_DIR}/.venv/bin/aws_completer" "aws"
 fi
-if which terraform > /dev/null ; then
-    complete -C "$(which terraform)" terraform
-fi
 export PATH="${SOURCE_DIR}/bin:${PATH}"
+complete -C "$(which terraform)" terraform
