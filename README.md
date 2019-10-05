@@ -2,7 +2,7 @@ This repo uses [terraform](https://www.terraform.io/) and AWS to...
 
 Configure a lambda function and API gateway to host a hello-world API: https://aws.jeremygreen.me.uk.
 
-Host the [spring-experiments](https://github.com/jg210/spring-experiments) application at http://aws-ec2.jeremygreen.me.uk.
+Host the [spring-experiments](https://github.com/jg210/spring-experiments) application at http://spring-experiments.jeremygreen.me.uk.
 
 * The spring-experiments app is built using a [travis-ci job](https://travis-ci.com/jg210/spring-experiments) and the jar is pushed into an AWS S3 bucket.
 * The [terraform scripts](terraform) in this repo create an EC2 instance,  configure it to run the jar (behind an nginx proxy) and update the [site](http://aws-ec2.jeremygreen.me.uk)'s DNS record.

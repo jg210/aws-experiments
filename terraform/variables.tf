@@ -25,7 +25,7 @@ variable "domain" {
 }
 
 variable "subdomain_ec2" {
-  default = "aws-ec2"
+  default = "spring-experiments"
 }
 
 variable "subdomain_api" {
