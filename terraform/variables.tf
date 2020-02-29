@@ -16,7 +16,7 @@ variable "aws_region" {
 variable "amis" {
   description = "AMI images."
   default = {
-    eu-west-1 = "ami-08d658f84a6d84a80"
+    eu-west-1 = "ami-035966e8adab4aaad"
   }
 }
 
