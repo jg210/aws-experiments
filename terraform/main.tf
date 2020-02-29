@@ -1,5 +1,5 @@
 terraform {
-  required_version = "=0.12.9"
+  required_version = "=0.12.21"
   backend "s3" {
     bucket = "aws-experiments-terraform-state"
     key = "default"
@@ -8,6 +8,10 @@ terraform {
 }
 
 provider "aws" {
-  version = "2.30.0"
-  region = "${var.aws_region}"
+  version = "2.51.0"
+  region = var.aws_region
+}
+
+provider "archive" {
+  version = "1.3"
 }

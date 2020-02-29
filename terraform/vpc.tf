@@ -5,26 +5,26 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_internet_gateway" "default" {
-  vpc_id = "${aws_vpc.main.id}"
+  vpc_id = aws_vpc.main.id
 }
 
 resource "aws_route" "internet" {
-  route_table_id = "${aws_vpc.main.main_route_table_id}"
+  route_table_id = aws_vpc.main.main_route_table_id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id = "${aws_internet_gateway.default.id}"
+  gateway_id = aws_internet_gateway.default.id
 }
 
 resource "aws_subnet" "primary" {
-  vpc_id = "${aws_vpc.main.id}"
+  vpc_id = aws_vpc.main.id
   cidr_block = "10.0.0.0/24"
   map_public_ip_on_launch = true
-  availability_zone = "${data.aws_availability_zones.available.names[0]}"
+  availability_zone = data.aws_availability_zones.available.names[0]
 }
 
 resource "aws_security_group" "default" {
   name        = "security_group"
   description = "security group"
-  vpc_id      = "${aws_vpc.main.id}"
+  vpc_id      = aws_vpc.main.id
   ingress {
     from_port   = 22
     to_port     = 22
