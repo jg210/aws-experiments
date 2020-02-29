@@ -29,9 +29,9 @@ resource "aws_iam_group" "aws-experiments-upload" {
 resource "aws_iam_group_membership" "aws-experiments-upload" {
   name = "aws-experiments-upload"
   users = [
-    "${aws_iam_user.travis.name}"
+    aws_iam_user.travis.name
   ]
-  group = "${aws_iam_group.aws-experiments-upload.name}"
+  group = aws_iam_group.aws-experiments-upload.name
 }
 
 data "aws_iam_policy_document" "aws-experiments-upload" {
@@ -43,8 +43,8 @@ data "aws_iam_policy_document" "aws-experiments-upload" {
 
 resource "aws_iam_group_policy" "aws-experiments-upload" {
   name = "aws-experiments-upload"
-  policy = "${data.aws_iam_policy_document.aws-experiments-upload.json}"
-  group = "${aws_iam_group.aws-experiments-upload.id}"
+  policy = data.aws_iam_policy_document.aws-experiments-upload.json
+  group = aws_iam_group.aws-experiments-upload.id
 }
 
 data "aws_iam_policy_document" "server_role" {
@@ -59,12 +59,12 @@ data "aws_iam_policy_document" "server_role" {
 
 resource "aws_iam_role" "server" {
   name = "server_role"
-  assume_role_policy = "${data.aws_iam_policy_document.server_role.json}"
+  assume_role_policy = data.aws_iam_policy_document.server_role.json
 }
 
 resource "aws_iam_instance_profile" "server" {
     name = "server"
-    role = "${aws_iam_role.server.name}"
+    role = aws_iam_role.server.name
 }
 
 data "aws_iam_policy_document" "aws-experiments-download" {
@@ -76,6 +76,6 @@ data "aws_iam_policy_document" "aws-experiments-download" {
 
 resource "aws_iam_role_policy" "aws-experiments-download" {
   name = "aws-experiments-download"
-  policy = "${data.aws_iam_policy_document.aws-experiments-download.json}"
-  role = "${aws_iam_role.server.id}"
+  policy = data.aws_iam_policy_document.aws-experiments-download.json
+  role = aws_iam_role.server.id
 }

@@ -9,7 +9,7 @@ terraform {
 
 provider "aws" {
   version = "2.51.0"
-  region = "${var.aws_region}"
+  region = var.aws_region
 }
 
 provider "archive" {
