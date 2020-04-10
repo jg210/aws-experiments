@@ -1,13 +1,25 @@
 # -*- mode: shell-script -*-
-export VIRTUAL_ENV_DISABLE_PROMPT=true
+#
+# Source this file into your shell while following instructions in README.md.
+
 SOURCE_DIR="$(readlink -f "$(dirname "$0")")"
+
+export PATH="${SOURCE_DIR}/bin:~/.pyenv/bin:${PATH}"
+
+eval "$(pyenv init -)"
+
 if [ -e "${SOURCE_DIR}/.venv/bin/activate" ] ; then
-    source "${SOURCE_DIR}/.venv/bin/activate"
+    VIRTUAL_ENV_DISABLE_PROMPT=true source "${SOURCE_DIR}/.venv/bin/activate"
 else
     printf "%s\n" "venv activate script missing - README.md explains how to set up your python environment." > /dev/stderr
 fi
 if [ -e "${SOURCE_DIR}/.venv/bin/aws_completer" ] ; then
     complete -C "${SOURCE_DIR}/.venv/bin/aws_completer" "aws"
 fi
-export PATH="${SOURCE_DIR}/bin:${PATH}"
-complete -C "$(which terraform)" terraform
+
+
+if which terraform > /dev/null ; then
+    complete -C "$(which terraform)" terraform
+else
+    printf "%s\n" "terraform is not installed - see README.md." > /dev/stderr
+fi
