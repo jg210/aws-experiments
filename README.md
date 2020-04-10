@@ -34,7 +34,7 @@ eval "$(~/.pyenv/bin/pyenv init -)"
 ~/.pyenv/bin/pyenv install
 pyenv exec python -m venv --clear .venv
 . environment
-pip install --upgrade pip==19.0.3
+pip install --upgrade pip==20.0.2
 pip install -r requirements.txt
 aws configure # eu-west-1, json.
 ```
