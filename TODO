@@ -1,5 +1,3 @@
-* pyenv.
-
 * Packer.
 
 * Try out terraform registry modules for lambda functions etc.
@@ -11,6 +9,8 @@
     - https://stackoverflow.com/a/47373353
 
 * Automated staged deployment.
+
+* aws CLI 2.x isn't available via pip...
 
 * Automated tests.
   - https://www.terraform.io/docs/github-actions/getting-started/index.html?
