@@ -10,7 +10,9 @@
 
 * Automated staged deployment.
 
-* aws CLI 2.x isn't available via pip...
+* aws CLI 2.x.
+  - isn't available via pypi/pip
+    - https://github.com/aws/aws-cli/issues/4947
 
 * Automated tests.
   - https://www.terraform.io/docs/github-actions/getting-started/index.html?
