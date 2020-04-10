@@ -37,7 +37,6 @@
 * "terraform plan" still outputs terminal control sequences if pipe stdout to less.
 
 * EC2 improvements.
-  - packer.
   - configuration management system, not shell script.
   - https
   - redirect http to https.
