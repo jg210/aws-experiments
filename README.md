@@ -21,9 +21,10 @@ These instructions are for Ubuntu and bash.
 * Create AWS account.
 * Configure an AWS IAM user with appropriate permissions.
 * [Download](https://www.terraform.io/downloads.html) required version of terraform (see [main.tf](terraform/main.tf)).
-* Unpack terraform zip.
-* Rename terraform executable to e.g. terraform-1.2.3.
-* Put terraform executable on PATH.
+* [Download](https://www.packer.io/downloads.html) required [version](bin/packer) of packer.
+* Unzip terraform and packer.
+* Rename terraform and packer executables to e.g. terraform-1.2.3.
+* Put terraform and packer executable in directory that is on PATH.
 * Create ~/.dns-api-password and ~/.dns-api-url with appropriate content and permissions etc.
 * Run (from a bash shell):
 

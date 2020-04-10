@@ -1,0 +1,6 @@
+#!/bin/bash
+scriptDir="$(dirname "$0")"
+. "${scriptDir}/.common.sh" 
+
+version=1.5.5
+exec "packer-${version}" "$@"
