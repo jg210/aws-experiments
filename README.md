@@ -28,10 +28,13 @@ These instructions are for Ubuntu and bash.
 * Run (from a bash shell):
 
 ```
-sudo apt-get install python3.5-venv
-python3.5 -m venv .venv
+sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+eval "$(~/.pyenv/bin/pyenv init -)"
+~/.pyenv/bin/pyenv install
+pyenv exec python -m venv --clear .venv
 . environment
-pip install --upgrade pip==19.0.3
+pip install --upgrade pip==20.0.2
 pip install -r requirements.txt
 aws configure # eu-west-1, json.
 ```

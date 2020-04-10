@@ -1,5 +1,3 @@
-* pyenv.
-
 * Packer.
 
 * Try out terraform registry modules for lambda functions etc.
@@ -11,6 +9,10 @@
     - https://stackoverflow.com/a/47373353
 
 * Automated staged deployment.
+
+* aws CLI 2.x.
+  - isn't available via pypi/pip
+    - https://github.com/aws/aws-cli/issues/4947
 
 * Automated tests.
   - https://www.terraform.io/docs/github-actions/getting-started/index.html?
@@ -35,7 +37,6 @@
 * "terraform plan" still outputs terminal control sequences if pipe stdout to less.
 
 * EC2 improvements.
-  - packer.
   - configuration management system, not shell script.
   - https
   - redirect http to https.
