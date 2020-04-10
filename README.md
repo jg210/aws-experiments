@@ -32,7 +32,7 @@ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev li
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 eval "$(~/.pyenv/bin/pyenv init -)"
 ~/.pyenv/bin/pyenv install
-python -m venv --clear .venv
+pyenv exec python -m venv --clear .venv
 . environment
 pip install --upgrade pip==19.0.3
 pip install -r requirements.txt
