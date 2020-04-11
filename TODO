@@ -1,9 +1,6 @@
 * Packer.
-  - s3 permissions prevent packer getting the spring-experiments jar.
-    - a suitable policy etc. is set up by artifacts.tf, but too late and for different instance
-    - split terraform into pre-packer and post-packer parts?
-    - download the jar at runtime?
   - use the AMI in terraform.
+    - removing and renaming the server role used for jar download
   - remove any instances and EBS volumes when done.
 
 * Is it possible to use t2.nano not t2.micro?
@@ -22,6 +19,11 @@
     - with testing before deployed.
   - tag packer EC2 instances etc.
   - automatically delete old packer-related resources in periodic job.
+
+* Circular dependency between packer and terraform.
+  - artifacts.tf defines role that is required by packer
+    => split terraform into pre- and post-packer parts?
+    - otherwise will get failures when first set things up.
 
 * aws CLI 2.x.
   - isn't available via pypi/pip

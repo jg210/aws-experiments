@@ -22,7 +22,8 @@
 	},
 	"instance_type": "{{user `aws_instance_type`}}",
 	"ssh_username": "ubuntu",	
-	"ami_name": "{{user `aws_ami_name`}}"
+	"ami_name": "{{user `aws_ami_name`}}",
+	"iam_instance_profile": "server"
     }],
     "provisioners": [
 	{
