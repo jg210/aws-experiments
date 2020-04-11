@@ -15,3 +15,13 @@ provider "aws" {
 provider "archive" {
   version = "1.3"
 }
+
+resource "aws_s3_bucket" "aws-experiments-terraform-state" {
+    bucket = "aws-experiments-terraform-state"
+    versioning {
+      enabled = true
+    }
+    lifecycle {
+      prevent_destroy = true
+    }
+}
