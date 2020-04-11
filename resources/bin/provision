@@ -70,7 +70,7 @@ After=syslog.target
 
 [Service]
 User=${springExperimentsUser}
-ExecStart=/usr/bin/java -jar "${jar}"
+ExecStart=/usr/bin/java -jar "${jar}" -Xms80m -Xmx80m
 
 [Install]
 WantedBy=multi-user.target
