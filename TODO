@@ -1,4 +1,5 @@
 * Is it possible to use t2.nano not t2.micro?
+  - https://spring.io/blog/2015/12/10/spring-boot-memory-performance 
 
 * EBS snapshots were building up.
   - what was creating them?
