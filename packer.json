@@ -1,0 +1,21 @@
+{
+    "variables": {
+	"aws_access_key": "",
+	"aws_secret_key": "",
+	"aws_region": "eu-west-1",
+	"aws_source_ami": "ami-035966e8adab4aaad",
+	"aws_instance_type": "t2.micro",
+	"aws_ami_name": "packer-aws-experiments"
+    },
+    "builders": [{
+	"type": "amazon-ebs",
+	"access_key": "{{user `aws_access_key`}}",
+	"secret_key": "{{user `aws_secret_key`}}",
+	"region": "{{user `aws_region`}}",
+	"source_ami": "{{user `aws_source_ami`}}",
+	"instance_type": "{{user `aws_instance_type`}}",
+	"ssh_username": "ubuntu",	
+	"ami_name": "{{user `aws_ami_name`}}"
+    }]
+}
+

@@ -1,4 +1,5 @@
 * Packer.
+  - remove any instances and EBS volumes when done.
 
 * Try out terraform registry modules for lambda functions etc.
   - https://registry.terraform.io/modules/howdio/lambda/aws/0.2.1
@@ -9,6 +10,7 @@
     - https://stackoverflow.com/a/47373353
 
 * Automated staged deployment.
+  - packer validate every commit
 
 * aws CLI 2.x.
   - isn't available via pypi/pip
