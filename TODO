@@ -1,4 +1,6 @@
 * Packer.
+  - use filter for source AMI.
+  - provision the instance.
   - remove any instances and EBS volumes when done.
 
 * Try out terraform registry modules for lambda functions etc.
@@ -11,6 +13,8 @@
 
 * Automated staged deployment.
   - packer validate every commit
+  - automated daily rebuilds
+    - with testing before deployed.
 
 * aws CLI 2.x.
   - isn't available via pypi/pip
