@@ -1,6 +1,6 @@
 This repo uses [terraform](https://www.terraform.io/) and AWS to...
 
-Configure a lambda function and API gateway to host a hello-world API: https://aws.jeremygreen.me.uk.
+Configure a [lambda function](resources/lambda/lambda.js) and API gateway to host a hello-world app: https://aws.jeremygreen.me.uk.
 
 Host the [spring-experiments](https://github.com/jg210/spring-experiments) application at http://spring-experiments.jeremygreen.me.uk.
 
