@@ -13,13 +13,6 @@ variable "aws_region" {
   default = "eu-west-1"
 }
 
-variable "amis" {
-  description = "AMI images."
-  default = {
-    eu-west-1 = "ami-035966e8adab4aaad"
-  }
-}
-
 variable "domain" {
   default = "jeremygreen.me.uk"
 }

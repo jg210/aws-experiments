@@ -1,4 +1,9 @@
-* Packer.
+* Is it possible to use t2.nano not t2.micro?
+  - https://spring.io/blog/2015/12/10/spring-boot-memory-performance 
+
+* EBS snapshots were building up.
+  - what was creating them?
+  - create snapshot lifecycle policy?
 
 * Try out terraform registry modules for lambda functions etc.
   - https://registry.terraform.io/modules/howdio/lambda/aws/0.2.1
@@ -9,6 +14,16 @@
     - https://stackoverflow.com/a/47373353
 
 * Automated staged deployment.
+  - packer validate every commit
+  - automated daily rebuilds
+    - with testing before deployed.
+  - tag packer EC2 instances etc.
+  - automatically delete old packer-related resources in periodic job.
+
+* Circular dependency between packer and terraform.
+  - artifacts.tf defines role that is required by packer
+    => split terraform into pre- and post-packer parts?
+    - otherwise will get failures when first set things up.
 
 * aws CLI 2.x.
   - isn't available via pypi/pip
