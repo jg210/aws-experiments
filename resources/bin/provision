@@ -36,6 +36,10 @@ apt_get_wrapper() {
 }
 
 export TERM=dumb
+
+log "waiting for cloud-init to complete..."
+/usr/bin/cloud-init status --wait
+
 log "updating apt packages (to update apt sources)."
 apt_get_wrapper update
 log "updating apt packages again (with new apt sources)."

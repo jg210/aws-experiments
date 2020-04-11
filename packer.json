@@ -23,6 +23,12 @@
 	"instance_type": "{{user `aws_instance_type`}}",
 	"ssh_username": "ubuntu",	
 	"ami_name": "{{user `aws_ami_name`}}"
-    }]
+    }],
+    "provisioners": [
+	{
+	    "type": "shell",
+            "script": "./resources/bin/provision"
+        }
+    ]
 }
 

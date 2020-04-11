@@ -1,5 +1,6 @@
 * Packer.
-  - provision the instance.
+  - s3 permissions prevent packer getting the spring-experiments jar.
+  - use the AMI in terraform.
   - remove any instances and EBS volumes when done.
 
 * Is it possible to use t2.nano not t2.micro?
@@ -16,6 +17,8 @@
   - packer validate every commit
   - automated daily rebuilds
     - with testing before deployed.
+  - tag packer EC2 instances etc.
+  - automatically delete old packer-related resources in periodic job.
 
 * aws CLI 2.x.
   - isn't available via pypi/pip
