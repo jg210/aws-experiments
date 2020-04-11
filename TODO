@@ -1,9 +1,8 @@
-* Packer.
-  - use the AMI in terraform.
-    - removing and renaming the server role used for jar download
-  - remove any instances and EBS volumes when done.
-
 * Is it possible to use t2.nano not t2.micro?
+
+* EBS snapshots were building up.
+  - what was creating them?
+  - create snapshot lifecycle policy?
 
 * Try out terraform registry modules for lambda functions etc.
   - https://registry.terraform.io/modules/howdio/lambda/aws/0.2.1
