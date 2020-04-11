@@ -1,5 +1,8 @@
 * Packer.
   - s3 permissions prevent packer getting the spring-experiments jar.
+    - a suitable policy etc. is set up by artifacts.tf, but too late and for different instance
+    - split terraform into pre-packer and post-packer parts?
+    - download the jar at runtime?
   - use the AMI in terraform.
   - remove any instances and EBS volumes when done.
 
