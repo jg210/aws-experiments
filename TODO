@@ -1,7 +1,8 @@
 * Packer.
-  - use filter for source AMI.
   - provision the instance.
   - remove any instances and EBS volumes when done.
+
+* Is it possible to use t2.nano not t2.micro?
 
 * Try out terraform registry modules for lambda functions etc.
   - https://registry.terraform.io/modules/howdio/lambda/aws/0.2.1
