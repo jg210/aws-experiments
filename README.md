@@ -24,8 +24,8 @@ These instructions are for Ubuntu and bash.
 * [Download](https://www.terraform.io/downloads.html) required version of terraform (see [main.tf](terraform/main.tf)).
 * [Download](https://www.packer.io/downloads.html) required [version](bin/packer) of packer.
 * Unzip terraform and packer.
-* Rename terraform and packer executables to e.g. terraform-1.2.3.
-* Put terraform and packer executable in directory that is on PATH.
+* Rename terraform and packer executables to add version suffix - e.g. terraform-1.2.3.
+* Put renamed terraform and packer executables in directory that is on PATH.
 * Create ~/.dns-api-password and ~/.dns-api-url with appropriate content and permissions etc.
 * Run (from a bash shell):
 
