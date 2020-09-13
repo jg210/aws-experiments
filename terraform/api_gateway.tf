@@ -62,6 +62,7 @@ resource "aws_api_gateway_method_settings" "proxy" {
 data "aws_acm_certificate" "api" {
   domain = "*.${var.domain}"
   statuses = ["ISSUED"]
+  most_recent = true
 }
 
 resource "aws_api_gateway_domain_name" "api" {
