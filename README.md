@@ -20,7 +20,7 @@ These instructions are for Ubuntu and bash.
 
 * Create an AWS account.
 * Configure an AWS IAM user with appropriate permissions.
-* [Download](https://www.terraform.io/downloads.html) required version of terraform (see [main.tf](terraform/main.tf)).
+* [Download](https://www.terraform.io/downloads.html) required [version](terraform/main.tf) of terraform.
 * [Download](https://www.packer.io/downloads.html) required [version](bin/packer) of packer.
 * Unzip terraform and packer.
 * Rename terraform and packer executables to add version suffix - e.g. terraform-1.2.3.
