@@ -12,10 +12,7 @@ This repo uses [terraform](https://www.terraform.io/) and AWS to...
 * [Terraform](terraform) creates an EC2 instance from the AMI and updates the [site](http://spring-experiments.jeremygreen.me.uk)'s DNS record.
 * Staying within the free tier means there's no load balancer, just one EC2 instance behind an elastic IP address.
 * Monitoring is done with [UptimeRobot](https://stats.uptimerobot.com/kD80YhnAzD) (the free plan, so there's no scheduled downtime facility).
-
-## Non Free-Tier Resources
-
-The Elastic IP address is not free if the EC2 instance is not running. Either keep the EC2 instance running, or destroy at least the Elastic IP address.
+* The Elastic IP address is not free if the EC2 instance is not running. Either keep the EC2 instance running, or destroy at least the Elastic IP address.
 
 ## Development Environment
 
