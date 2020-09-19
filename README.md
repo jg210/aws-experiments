@@ -8,6 +8,7 @@ Host the [spring-experiments](https://github.com/jg210/spring-experiments) appli
 * [Packer](https://packer.io/) creates an AMI that runs the jar behind an nginx proxy.
 * [Terraform](terraform) creates an EC2 instance from the AMI and updates the [site](http://spring-experiments.jeremygreen.me.uk)'s DNS record.
 * Staying within the free tier means there's no load balancer, just one EC2 instance behind an elastic IP address.
+* Monitoring is done with [UptimeRobot](https://stats.uptimerobot.com/kD80YhnAzD).
 
 [![Build Status](https://travis-ci.com/jg210/aws-experiments.svg?branch=master)](https://travis-ci.com/jg210/aws-experiments)
 
