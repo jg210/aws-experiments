@@ -1,16 +1,17 @@
+[![Build Status](https://travis-ci.com/jg210/aws-experiments.svg?branch=master)](https://travis-ci.com/jg210/aws-experiments)
+
 This repo uses [terraform](https://www.terraform.io/) and AWS to...
 
-Configure a [lambda function](resources/lambda/lambda.js) and API gateway to host a hello-world app: https://aws.jeremygreen.me.uk.
+* Host the [spring-experiments](https://github.com/jg210/spring-experiments) application at http://spring-experiments.jeremygreen.me.uk.
+* Configure a [lambda function](resources/lambda/lambda.js) and API gateway to host a hello-world app: https://aws.jeremygreen.me.uk.
 
-Host the [spring-experiments](https://github.com/jg210/spring-experiments) application at http://spring-experiments.jeremygreen.me.uk.
+## Notes
 
 * The spring-experiments app is built using a [travis-ci job](https://travis-ci.com/jg210/spring-experiments) and the jar is pushed into an AWS S3 bucket.
 * [Packer](https://packer.io/) creates an AMI that runs the jar behind an nginx proxy.
 * [Terraform](terraform) creates an EC2 instance from the AMI and updates the [site](http://spring-experiments.jeremygreen.me.uk)'s DNS record.
 * Staying within the free tier means there's no load balancer, just one EC2 instance behind an elastic IP address.
 * Monitoring is done with [UptimeRobot](https://stats.uptimerobot.com/kD80YhnAzD) (the free plan, so there's no scheduled downtime facility).
-
-[![Build Status](https://travis-ci.com/jg210/aws-experiments.svg?branch=master)](https://travis-ci.com/jg210/aws-experiments)
 
 ## Non Free-Tier Resources
 
