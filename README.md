@@ -10,7 +10,7 @@ This repo uses [terraform](https://www.terraform.io/) and AWS to:
 * The spring-experiments app is built using a [travis-ci job](https://travis-ci.com/jg210/spring-experiments) and the jar is pushed into an AWS S3 bucket.
 * [Packer](https://packer.io/) creates an AMI that runs the jar behind an nginx proxy.
 * [Terraform](terraform) creates an EC2 instance from the AMI and updates the [site](http://spring-experiments.jeremygreen.me.uk)'s DNS record.
-* Staying within the free tier means there's no load balancer, just one EC2 instance behind an elastic IP address.
+* Staying within the free tier means there's no load balancer, just one EC2 instance behind an Elastic IP address.
 * The Elastic IP address is not free if the EC2 instance is not running. Either keep the EC2 instance running, or destroy at least the Elastic IP address.
 * Monitoring is done with [UptimeRobot](https://stats.uptimerobot.com/kD80YhnAzD) (the free plan, so there's no scheduled downtime facility).
 
