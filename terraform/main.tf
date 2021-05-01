@@ -1,5 +1,15 @@
 terraform {
-  required_version = "=0.12.24"
+  required_version = "=0.13.7"
+  required_providers {
+    archive = {
+      source = "hashicorp/archive"
+      version = "1.3"
+    }
+    aws = {
+      source = "hashicorp/aws"
+      version = "2.57.0"
+    }
+  }
   backend "s3" {
     bucket = "aws-experiments-terraform-state"
     key = "default"
@@ -7,13 +17,11 @@ terraform {
   }
 }
 
-provider "aws" {
-  version = "2.57.0"
-  region = var.aws_region
+provider "archive" {
 }
 
-provider "archive" {
-  version = "1.3"
+provider "aws" {
+  region = var.aws_region
 }
 
 resource "aws_s3_bucket" "aws-experiments-terraform-state" {
