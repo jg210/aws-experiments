@@ -1,11 +1,15 @@
 resource "aws_s3_bucket" "aws-experiments" {
     bucket = "aws-experiments"
-    versioning {
-      enabled = false
-    }
     lifecycle {
       prevent_destroy = true
     }
+}
+
+resource "aws_s3_bucket_versioning" "aws-experiments" {
+  bucket = aws_s3_bucket.aws-experiments.id
+  versioning_configuration {
+    status = "Disabled"
+  }
 }
 
 resource "aws_iam_user" "travis" {
