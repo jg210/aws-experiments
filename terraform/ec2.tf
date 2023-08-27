@@ -24,7 +24,7 @@ resource "aws_instance" "server" {
 }
 
 resource "aws_eip" "server" {
-  vpc = true
+  domain = "vpc"
   instance = aws_instance.server.id
   depends_on = [aws_internet_gateway.default]
   provisioner "local-exec" {

@@ -8,7 +8,7 @@ resource "aws_lambda_function" "hello" {
   function_name = "hello"
   filename = "../resources/lambda.zip"
   handler = "lambda.hello"
-  runtime = "nodejs14.x"
+  runtime = "nodejs18.x"
   role = aws_iam_role.hello.arn
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 }

@@ -1,13 +1,13 @@
 terraform {
-  required_version = "=0.15.1"
+  required_version = "=1.5.6"
   required_providers {
     archive = {
       source = "hashicorp/archive"
-      version = "2.1.0"
+      version = "2.4.0"
     }
     aws = {
       source = "hashicorp/aws"
-      version = "3.38.0"
+      version = "5.14.0"
     }
   }
   backend "s3" {
@@ -26,10 +26,14 @@ provider "aws" {
 
 resource "aws_s3_bucket" "aws-experiments-terraform-state" {
     bucket = "aws-experiments-terraform-state"
-    versioning {
-      enabled = true
-    }
     lifecycle {
       prevent_destroy = true
     }
+}
+
+resource "aws_s3_bucket_versioning" "aws-experiments-terraform-state" {
+  bucket = aws_s3_bucket.aws-experiments-terraform-state.id
+  versioning_configuration {
+    status = "Disabled"
+  }
 }
