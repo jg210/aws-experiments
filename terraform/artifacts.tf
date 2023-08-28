@@ -8,7 +8,7 @@ resource "aws_s3_bucket" "aws-experiments" {
 resource "aws_s3_bucket_versioning" "aws-experiments" {
   bucket = aws_s3_bucket.aws-experiments.id
   versioning_configuration {
-    status = "Disabled"
+    status = "Suspended"
   }
 }
 

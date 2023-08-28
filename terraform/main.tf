@@ -34,6 +34,6 @@ resource "aws_s3_bucket" "aws-experiments-terraform-state" {
 resource "aws_s3_bucket_versioning" "aws-experiments-terraform-state" {
   bucket = aws_s3_bucket.aws-experiments-terraform-state.id
   versioning_configuration {
-    status = "Disabled"
+    status = "Suspended"
   }
 }
