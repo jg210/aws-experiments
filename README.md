@@ -10,8 +10,9 @@ This repo uses [terraform](https://www.terraform.io/) and AWS to:
 * The spring-experiments app is built using a [travis-ci job](https://travis-ci.com/jg210/spring-experiments) and the jar is pushed into an AWS S3 bucket.
 * [Packer](https://packer.io/) creates an AMI that runs the jar behind an nginx proxy.
 * [Terraform](terraform) creates an EC2 instance from the AMI and updates the [site](http://spring-experiments.jeremygreen.me.uk)'s DNS record.
-* Staying within the free tier means there's no load balancer, just one EC2 instance behind an Elastic IP address.
-* The Elastic IP address is not free if the EC2 instance is not running. Either keep the EC2 instance running, or destroy at least the Elastic IP address.
+* Staying within the free tier meant there's no load balancer, just one EC2 instance behind an Elastic IP address.
+* Until Feb 2024, the Elastic IP address is not free if the EC2 instance is not running. Either keep the EC2 instance running, or destroy at least the Elastic IP address.
+* After Feb 2024, there will be a cost all the time.
 * Monitoring is done with [UptimeRobot](https://stats.uptimerobot.com/kD80YhnAzD) (the free plan, so there's no scheduled downtime facility).
 
 ## Development Environment
@@ -29,13 +30,13 @@ These instructions are for Ubuntu and bash.
 * Run (from a bash shell):
 
 ```
-sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 eval "$(~/.pyenv/bin/pyenv init -)"
 ~/.pyenv/bin/pyenv install
 pyenv exec python -m venv --clear .venv
 . environment
-pip install --upgrade pip==20.0.2
+pip install --upgrade pip==23.3.1
 pip install -r requirements.txt
 aws configure # eu-west-1, json.
 ```
@@ -54,7 +55,8 @@ To configure emacs:
 To build AMI:
 
 ```
-packer build --force packer.json
+packer init .
+packer build --force packer.pkr.hcl
 ```
 
 To deploy:

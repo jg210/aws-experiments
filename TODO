@@ -2,6 +2,10 @@
 
 * Add pip constraints file.
 
+* bash completion for packer.
+
+* Move commands from README.md to ~/bin/setup
+
 * EBS snapshots were building up.
   - what was creating them?
   - create snapshot lifecycle policy?
