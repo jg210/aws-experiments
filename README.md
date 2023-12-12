@@ -29,13 +29,13 @@ These instructions are for Ubuntu and bash.
 * Run (from a bash shell):
 
 ```
-sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 eval "$(~/.pyenv/bin/pyenv init -)"
 ~/.pyenv/bin/pyenv install
 pyenv exec python -m venv --clear .venv
 . environment
-pip install --upgrade pip==20.0.2
+pip install --upgrade pip==23.3.1
 pip install -r requirements.txt
 aws configure # eu-west-1, json.
 ```

@@ -2,5 +2,5 @@
 scriptDir="$(dirname "$0")"
 . "${scriptDir}/.common.sh" 
 
-version=1.5.5
+version=1.10.0
 exec "packer-${version}" "$@"
