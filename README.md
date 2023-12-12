@@ -54,7 +54,8 @@ To configure emacs:
 To build AMI:
 
 ```
-packer build --force packer.json
+packer init .
+packer build --force packer.pkr.hcl
 ```
 
 To deploy:
