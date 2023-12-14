@@ -16,7 +16,7 @@ resource "aws_instance" "server" {
     user = "ubuntu"
     host = self.public_ip
   }
-  instance_type = "t2.nano"
+  instance_type = "t3a.nano"
   ami = data.aws_ami.server.image_id
   key_name = aws_key_pair.auth.id
   vpc_security_group_ids = [aws_security_group.default.id]
