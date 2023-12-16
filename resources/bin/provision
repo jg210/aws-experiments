@@ -55,7 +55,7 @@ sudo mkdir -p "${springExperimentsDir}"
 jar="${springExperimentsDir}/spring-experiments.jar"
 log "downloading: ${jar}"
 jarTmp="/tmp/spring-experiments.jar"
-aws s3 cp s3://aws-experiments/artifacts/spring-experiments/spring-experiments-0.0.1-SNAPSHOT.jar "${jarTmp}"
+aws s3 cp s3://aws-experiments/artifacts/uk/me/jeremygreen/springexperiments/springexperiments/1.0/springexperiments-1.0-plain.jar "${jarTmp}"
 sudo chown root.root "${jarTmp}"
 sudo mv "${jarTmp}" "${jar}"
 springExperimentsUser=spring-experiments
