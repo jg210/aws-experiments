@@ -45,7 +45,7 @@ apt_get_wrapper update
 log "updating apt packages again (with new apt sources)."
 apt_get_wrapper update
 log "installing apt packages."
-apt_get_wrapper install default-jre python3-pip
+apt_get_wrapper install openjdk-17-jre-headless python3-pip
 log "installing: awscli"
 pip3 install --upgrade --user --disable-pip-version-check awscli==1.31.12
 export PATH="~/.local/bin/:${PATH}"
