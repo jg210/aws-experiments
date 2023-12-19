@@ -45,7 +45,7 @@ apt_get_wrapper update
 log "updating apt packages again (with new apt sources)."
 apt_get_wrapper update
 log "installing apt packages."
-apt_get_wrapper install default-jre python3-pip
+apt_get_wrapper install openjdk-17-jre-headless python3-pip
 log "installing: awscli"
 pip3 install --upgrade --user --disable-pip-version-check awscli==1.31.12
 export PATH="~/.local/bin/:${PATH}"
@@ -55,7 +55,7 @@ sudo mkdir -p "${springExperimentsDir}"
 jar="${springExperimentsDir}/spring-experiments.jar"
 log "downloading: ${jar}"
 jarTmp="/tmp/spring-experiments.jar"
-aws s3 cp s3://aws-experiments/artifacts/spring-experiments/spring-experiments-0.0.1-SNAPSHOT.jar "${jarTmp}"
+aws s3 cp s3://aws-experiments/artifacts/uk/me/jeremygreen/spring-experiments/1.0/spring-experiments-1.0.jar "${jarTmp}"
 sudo chown root.root "${jarTmp}"
 sudo mv "${jarTmp}" "${jar}"
 springExperimentsUser=spring-experiments
