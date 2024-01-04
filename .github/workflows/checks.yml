@@ -32,6 +32,9 @@ jobs:
     - name: terraform validate
       run: "cd terraform && terraform validate"
 
+    - name: install graphviz (dot)
+      run: sudo apt-get install -y graphviz
+
     - name: terraform graph
       run: "cd terraform && terraform graph -draw-cycles | dot -Tsvg > terraform.svg"
 
