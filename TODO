@@ -34,14 +34,10 @@
 
 * Automated tests.
   - https://www.terraform.io/docs/github-actions/getting-started/index.html?
-  - travis-based tests commented out since terraform S3 backend needs AWS credentials
+  - terraform graph step commented out since terraform S3 backend needs AWS credentials
     - this might allow multiple backends?
       - https://www.monterail.com/blog/chicken-or-egg-terraforms-remote-backend
-  - store terraform dependency-graph svg to S3 and link to it from README.md.
-  - cache terraform download.
-  - logs with timestamps.
-  - travis isn't sending failure emails
-    - likely since github "Keep my email address private" is enabled.
+  - store terraform dependency-graph svg and link to it from README.md.
 
 * Terraform only asks for ssh keychain password when needs it, but only gives you five minutes to supply password.
   - unlock keychain earlier.
