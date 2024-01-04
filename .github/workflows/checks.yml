@@ -37,6 +37,6 @@ jobs:
       run: sudo apt-get install -y graphviz
 
     # - name: terraform graph
-    #   run: cd terraform && terraform graph -draw-cycles | dot -Tsvg > terraform.svg
+    #   run: cd terraform && terraform graph -draw-cycles | dot -Tsvg -Gconcentrate=true > terraform.svg
 
       # TODO store terraform.svg as artifact
