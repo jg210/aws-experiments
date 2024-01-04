@@ -21,21 +21,21 @@ jobs:
         version: "1.10.0"
 
     - name: packer init
-      run: "packer init ./packer.pkr.hcl"
+      run: packer init ./packer.pkr.hcl
 
     - name: packer validate
-      run: "packer validate ./packer.pkr.hcl"
+      run: packer validate ./packer.pkr.hcl
 
     - name: terraform init
-      run: "cd terraform && terraform init -backend=false"
+      run: cd terraform && terraform init -backend=false
 
     - name: terraform validate
-      run: "cd terraform && terraform validate"
+      run: cd terraform && terraform validate
 
     - name: install graphviz (dot)
       run: sudo apt-get install -y graphviz
 
     - name: terraform graph
-      run: "cd terraform && terraform graph -draw-cycles | dot -Tsvg > terraform.svg"
+      run: cd terraform && terraform graph -draw-cycles | dot -Tsvg > terraform.svg
 
       # TODO store terraform.svg as artifact
