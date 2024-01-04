@@ -7,7 +7,7 @@ This repo uses [terraform](https://www.terraform.io/) and AWS to:
 
 ## Notes
 
-* The spring-experiments app is built using a [travis-ci job](https://travis-ci.com/jg210/spring-experiments) and the jar is pushed into an AWS S3 bucket.
+* The spring-experiments app is built using a [CI job](https://github.com/jg210/spring-experiments/actions/workflows/checks.yml) and the jar is pushed into an AWS S3 bucket.
 * [Packer](https://packer.io/) creates an AMI that runs the jar behind an nginx proxy.
 * [Terraform](terraform) creates an EC2 instance from the AMI and updates the [site](http://spring-experiments.jeremygreen.me.uk)'s DNS record.
 * Staying within the free tier meant there's no load balancer, just one EC2 instance behind an Elastic IP address.
