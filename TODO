@@ -1,13 +1,3 @@
-* Why is spring-experiments down?
-  - https://help.ubuntu.com/community/AutomaticSecurityUpdates cause OOM killer to stop java process
-  - options
-    - swap?
-      - no instance storage on t3a.nano
-      => gp2 EBS (since no IO cost)
-    - larger instance?
-    - disable upgrades
-      - risky unless automate upgrades using e.g. packer and CI
-
 * Add pip constraints file.
 
 * bash completion for packer.
