@@ -2,5 +2,5 @@
 scriptDir="$(dirname "$0")"
 . "${scriptDir}/.common.sh" 
 
-version=1.10.0
+version="$(cat "${scriptDir}/../packer.pkr.hcl" | egrep '^ *required_version' | cut -d= -f2 | sed -e 's/^ *"//' -e 's/" *$//')"
 exec "packer-${version}" "$@"

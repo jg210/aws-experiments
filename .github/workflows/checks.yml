@@ -1,0 +1,42 @@
+name: checks
+
+on: push
+
+jobs:
+  checks:
+    runs-on: ubuntu-20.04
+    permissions:
+      contents: read
+
+    steps:
+
+    - uses: actions/checkout@v3
+
+    - uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: "1.5.6"
+
+    - uses: hashicorp/setup-packer@v2.0.1
+      with:
+        version: "1.10.0"
+
+    - name: packer init
+      run: packer init ./packer.pkr.hcl
+
+    - name: packer validate
+      run: packer validate ./packer.pkr.hcl
+
+    - name: terraform init
+      run: cd terraform && terraform init -backend=false
+
+    - name: terraform validate
+      run: cd terraform && terraform validate
+
+    # TODO cache the package
+    - name: install graphviz (dot)
+      run: sudo apt-get install -y graphviz
+
+    # - name: terraform graph
+    #   run: cd terraform && terraform graph -draw-cycles | dot -Tsvg > terraform.svg
+
+      # TODO store terraform.svg as artifact
