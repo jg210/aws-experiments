@@ -74,8 +74,12 @@ data "aws_iam_policy_document" "aws_experiments_download" {
   }
 }
 
-resource "aws_iam_role_policy" "aws_experiments_download" {
+resource "aws_iam_policy" "aws_experiments_download" {
   name = "aws_experiments_download"
   policy = data.aws_iam_policy_document.aws_experiments_download.json
-  role = aws_iam_role.aws_experiments_download.id
+}
+
+resource "aws_iam_role_policy_attachment" "aws_experiments_download" {
+    role = aws_iam_role.aws_experiments_download.id
+    policy_arn = aws_iam_policy.aws_experiments_download.arn
 }

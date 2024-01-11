@@ -1,41 +1,38 @@
-data "archive_file" "lambda_zip" {
-  type = "zip"
-  source_dir = "../resources/lambda"
-  output_path = "../resources/lambda.zip"
+resource "aws_lambda_function" "spring-experiments" {
+  function_name = "spring-experiments"
+  s3_bucket = "aws-experiments"
+  s3_key = "artifacts/uk/me/jeremygreen/spring-experiments/1.0/spring-experiments-1.0.jar"
+  handler = "uk.me.jeremygreen.springexperiments.StreamLambdaHandler"
+  runtime = "java17"
+  role = aws_iam_role.spring-experiments.arn
 }
 
-resource "aws_lambda_function" "hello" {
-  function_name = "hello"
-  filename = "../resources/lambda.zip"
-  handler = "lambda.hello"
-  runtime = "nodejs18.x"
-  role = aws_iam_role.hello.arn
-  source_code_hash = data.archive_file.lambda_zip.output_base64sha256
+resource "aws_iam_role" "spring-experiments" {
+  name = "spring-experiments"
+  assume_role_policy = data.aws_iam_policy_document.lambda_role_policy.json
+  managed_policy_arns = [ aws_iam_policy.aws_experiments_download.arn ]
 }
 
-resource "aws_iam_role" "hello" {
-  name = "hello"
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "lambda.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Sid": ""
+data "aws_iam_policy_document" "lambda_role_policy" {
+  statement {
+    actions = ["sts:AssumeRole"]
+    principals {
+      type = "Service"
+      identifiers = ["lambda.amazonaws.com"]
     }
-  ]
-}
-EOF
+  }
 }
 
-resource "aws_lambda_permission" "hello" {
+resource "aws_iam_role_policy_attachment" "aws_experiments_download_by_lambda" {
+  role = aws_iam_role.spring-experiments.name
+  policy_arn = aws_iam_policy.aws_experiments_download.arn
+}
+
+
+resource "aws_lambda_permission" "spring-experiments" {
   statement_id = "AllowAPIGatewayInvoke"
   action = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.hello.function_name
+  function_name = aws_lambda_function.spring-experiments.function_name
   principal = "apigateway.amazonaws.com"
   # "/*/*" => any method and any resource1.
   source_arn = "${aws_api_gateway_rest_api.api.execution_arn}/*/*"
