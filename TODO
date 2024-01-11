@@ -1,3 +1,7 @@
+* AWS lambda can't see StreamLambdaHandler since it's in a BOOT-INF directory
+  - https://stackoverflow.com/questions/68279604/aws-lambda-with-spring-boot-and-gradle-not-working-class-not-found-exception-wh
+  - is is possible to fix this without using different jars for lambda and EC2?
+
 * Replace EC2 with something that's less hassle and more modern.
 
 * Add pip constraints file.
