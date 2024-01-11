@@ -28,6 +28,10 @@ resource "aws_iam_role_policy_attachment" "aws_experiments_download_by_lambda" {
   policy_arn = aws_iam_policy.aws_experiments_download.arn
 }
 
+resource "aws_iam_role_policy_attachment" "lambda_AWSLambdaBasicExecutionRole" {
+  role = aws_iam_role.spring-experiments.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+}
 
 resource "aws_lambda_permission" "spring-experiments" {
   statement_id = "AllowAPIGatewayInvoke"
