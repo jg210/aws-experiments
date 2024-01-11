@@ -1,3 +1,5 @@
+* Replace EC2 with something that's less hassle and more modern.
+
 * Add pip constraints file.
 
 * bash completion for packer.
