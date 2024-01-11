@@ -28,7 +28,7 @@ resource "aws_api_gateway_integration" "lambda" {
   http_method = aws_api_gateway_method.proxy.http_method
   integration_http_method = "POST"
   type = "AWS_PROXY"
-  uri = aws_lambda_function.spring-experiments.invoke_arn
+  uri = aws_lambda_function.spring_experiments.invoke_arn
 }
 
 resource "aws_api_gateway_integration" "lambda_root" {
@@ -37,7 +37,7 @@ resource "aws_api_gateway_integration" "lambda_root" {
   http_method = aws_api_gateway_method.proxy_root.http_method
   integration_http_method = "POST"
   type = "AWS_PROXY"
-  uri = aws_lambda_function.spring-experiments.invoke_arn
+  uri = aws_lambda_function.spring_experiments.invoke_arn
  }
 
 resource "aws_api_gateway_deployment" "api_production" {
