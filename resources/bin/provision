@@ -45,10 +45,13 @@ apt_get_wrapper update
 log "updating apt packages again (with new apt sources)."
 apt_get_wrapper update
 
-log "removing unattended-upgrades"
-# It causes Linux kernel's OOM killer to stop the spring-experiments java process. Instead, CI
-# builds and deploys new images periodically.
-apt_get_wrapper purge unattended-upgrades
+log "removing packages that cause OOMs"
+# apt-check etc. memory use causes Linux kernel's OOM killer to stop the spring-experiments
+# java process. Instead, need to deploy new images periodically.
+apt_get_wrapper purge \
+    unattended-upgrades \
+    update-notifier \
+    update-notifier-common
 
 log "installing apt packages."
 apt_get_wrapper install openjdk-17-jre-headless python3-pip
