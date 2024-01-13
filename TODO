@@ -1,6 +1,7 @@
-* AWS lambda can't see StreamLambdaHandler since it's in a BOOT-INF directory
-  - https://stackoverflow.com/questions/68279604/aws-lambda-with-spring-boot-and-gradle-not-working-class-not-found-exception-wh
-  - is is possible to fix this without using different jars for lambda and EC2?
+* Internal server error
+  - https://stackoverflow.com/questions/51686903/badrequest-on-aws-api-gateway-method-settings-logging-level
+  - enable cloudwatch for API gateway?
+  - is DNS pointing at the correct lambda function?
 
 * Replace EC2 with something that's less hassle and more modern.
 
