@@ -1,7 +1,12 @@
 * Internal server error
   - https://stackoverflow.com/questions/51686903/badrequest-on-aws-api-gateway-method-settings-logging-level
-  - enable cloudwatch for API gateway?
-  - is DNS pointing at the correct lambda function?
+  - enabling cloudwatch for API gateway
+    - "Execution failed due to configuration error: Invalid permissions on Lambda function"
+      - maybe https://github.com/hashicorp/terraform-provider-aws/issues/9972?
+
+* Turn off detailed cloudwatch logging for API gateway.
+
+* Configure cloudwatch retention.
 
 * Replace EC2 with something that's less hassle and more modern.
 
