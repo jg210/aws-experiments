@@ -37,6 +37,6 @@ resource "aws_lambda_permission" "spring_experiments" {
   action = "lambda:InvokeFunction"
   function_name = aws_lambda_function.spring_experiments.function_name
   principal = "apigateway.amazonaws.com"
-  # "/*/*" => any method and any resource1.
+  # "/*/*" => any method and any resource.
   source_arn = "${aws_api_gateway_rest_api.api.execution_arn}/*/*"
 }
