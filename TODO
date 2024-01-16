@@ -8,7 +8,7 @@
     - responseXML: null
     - status: 502
   - don't see 502 in lambda logs => API gateway problem => re-enable logs?
-
+  - "Task timed out after 3.08 seconds" => 502
 
 * Configure cloudwatch retention.
 

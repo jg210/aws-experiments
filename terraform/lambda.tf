@@ -4,6 +4,7 @@ resource "aws_lambda_function" "spring_experiments" {
   s3_key = "artifacts/uk/me/jeremygreen/spring-experiments/1.0/spring-experiments-1.0-aws.jar"
   handler = "uk.me.jeremygreen.springexperiments.StreamLambdaHandler::handleRequest"
   runtime = "java17"
+  timeout = "15"
   role = aws_iam_role.spring_experiments.arn
 }
 
