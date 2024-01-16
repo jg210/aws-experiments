@@ -46,6 +46,17 @@ resource "aws_api_gateway_deployment" "api_production" {
     aws_api_gateway_integration.lambda_root
   ]
   rest_api_id = aws_api_gateway_rest_api.api.id
+  triggers = {
+  # "using whole resources will show a difference after the initial implementation.
+  # It will stabilize to only change when resources change afterwards."
+  redeployment = sha1(jsonencode([
+    aws_api_gateway_resource.proxy,
+    aws_api_gateway_method.proxy,
+    aws_api_gateway_method.proxy_root,
+    aws_api_gateway_integration.lambda,
+    aws_api_gateway_integration.lambda_root,
+  ]))
+  }
   stage_name  = "production"
 }
 
