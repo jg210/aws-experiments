@@ -30,3 +30,8 @@ resource "aws_iam_role_policy_attachment" "main" {
   role       = aws_iam_role.main.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
 }
+
+resource "aws_cloudwatch_log_group" "api_gateway" {
+  name = "API-Gateway-Execution-Logs_${aws_api_gateway_rest_api.api.id}/production"
+  retention_in_days = 7
+}
