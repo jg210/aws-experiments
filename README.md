@@ -14,6 +14,7 @@ This repo uses [terraform](https://www.terraform.io/) and AWS to host the [sprin
 * Until Feb 2024, the Elastic IP address is not free if the EC2 instance is not running. Either keep the EC2 instance running, or destroy at least the Elastic IP address.
 * After Feb 2024, there will be a cost all the time.
 * The same jar is also used for the lambda function (presumably making it larger, but more convenient).
+* API gateway requests are heavily rate limited, so will see 429 HTTP responses if make too many requests.
 * Monitoring is done with [UptimeRobot](https://stats.uptimerobot.com/kD80YhnAzD) (the free plan, so there's no scheduled downtime facility).
 
 ## Development Environment
