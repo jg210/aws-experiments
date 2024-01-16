@@ -1,5 +1,3 @@
-* Turn off detailed cloudwatch logging for API gateway.
-
 * Configure cloudwatch retention.
 
 * Replace EC2 with something that's less hassle and more modern.

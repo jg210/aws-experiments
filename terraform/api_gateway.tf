@@ -67,9 +67,9 @@ resource "aws_api_gateway_method_settings" "proxy" {
   settings {
     throttling_burst_limit = 5
     throttling_rate_limit = 10
-    logging_level      = "INFO"
-    metrics_enabled    = true
-    data_trace_enabled = true
+    logging_level      = "OFF"
+    metrics_enabled    = false
+    data_trace_enabled = false
   }
 }
 
