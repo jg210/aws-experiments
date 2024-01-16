@@ -1,9 +1,9 @@
 [![build status](https://github.com/jg210/aws-experiments/actions/workflows/checks.yml/badge.svg)](https://github.com/jg210/aws-experiments/actions/workflows/checks.yml)
 
-This repo uses [terraform](https://www.terraform.io/) and AWS to host the [spring-experiments](https://github.com/jg210/spring-experiments) application using:
+This repo uses [terraform](https://www.terraform.io/) and AWS to host the [spring-experiments](https://github.com/jg210/spring-experiments) application using both:
 
-* EC2: http://spring-experiments.jeremygreen.me.uk.
-* A [lambda function](resources/lambda/lambda.js) and API gateway: https://aws.jeremygreen.me.uk.
+* [EC2](https://aws.amazon.com/ec2/): http://spring-experiments.jeremygreen.me.uk.
+* A [lambda function](https://aws.amazon.com/pm/lambda/) and [API gateway](https://aws.amazon.com/api-gateway/): https://aws.jeremygreen.me.uk.
 
 ## Notes
 
