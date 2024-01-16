@@ -41,3 +41,8 @@ resource "aws_lambda_permission" "spring_experiments" {
   # "/*/*" => any method and any resource.
   source_arn = "${aws_api_gateway_rest_api.api.execution_arn}/*/*"
 }
+
+resource "aws_cloudwatch_log_group" "spring_experiments" {
+  name = "/aws/lambda/spring_experiments"
+  retention_in_days = 7
+}
