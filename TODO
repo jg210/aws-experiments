@@ -1,7 +1,14 @@
 * Sometimes get stuck on "loading..."
   - e.g. in firefox console at about 1654 GMT
-  - Object { stack: "I@https://aws.jeremygreen.me.uk/static/js/main.b1ca081e.js:2:146714\nNe.xhr</</d/<@https://aws.jeremygreen.me.uk/static/js/main.b1ca081e.js:2:160756\nd@https://aws.jeremygreen.me.uk/static/js/main.b1ca081e.js:2:160901\n", message: "Request failed with status code 502", name: "AxiosError", code: "ERR_BAD_RESPONSE", config: {…}, request: XMLHttpRequest, response: {…} }
-    - don't see 502 in lambda logs => API gateway problem => re-enable logs?
+  - Object { stack: "I@https://aws.jeremygreen.me.uk/static/js/main.b1ca081e.js:2:146714\nNe.xhr</</d/<@https://aws.jeremygreen.me.uk/static/js/main.b1ca081e.js:2:160756\nd@https://aws.jeremygreen.me.uk/static/js/main.b1ca081e.js:2:160901\n", message: "Request failed with status code 502", name: "AxiosError", code: "ERR_BAD_RESPONSE", config: {…}, request: XMLHttpRequest, response: {…} }    ​
+    - response: '{"message": "Internal server error"}'
+    - responseText: '{"message": "Internal server error"}'
+    - responseType: ""
+    - responseURL: "https://aws.jeremygreen.me.uk/api/fsa/localAuthority/197"
+    - responseXML: null
+    - status: 502
+  - don't see 502 in lambda logs => API gateway problem => re-enable logs?
+
 
 * Configure cloudwatch retention.
 
