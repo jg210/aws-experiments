@@ -1,10 +1,3 @@
-* Internal server error
-  - https://stackoverflow.com/questions/51686903/badrequest-on-aws-api-gateway-method-settings-logging-level
-  - enabling cloudwatch for API gateway
-    - "Execution failed due to configuration error: Invalid permissions on Lambda function"
-      - maybe https://github.com/hashicorp/terraform-provider-aws/issues/9972?
-      -   source_arn = "${aws_api_gateway_rest_api.api.execution_arn}/*/*" has just "/*" in https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_permission
-
 * Turn off detailed cloudwatch logging for API gateway.
 
 * Configure cloudwatch retention.
