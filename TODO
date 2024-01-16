@@ -1,6 +1,12 @@
+* Sometimes get stuck on "loading..."
+  - e.g. in firefox console at about 1654 GMT
+  - Object { stack: "I@https://aws.jeremygreen.me.uk/static/js/main.b1ca081e.js:2:146714\nNe.xhr</</d/<@https://aws.jeremygreen.me.uk/static/js/main.b1ca081e.js:2:160756\nd@https://aws.jeremygreen.me.uk/static/js/main.b1ca081e.js:2:160901\n", message: "Request failed with status code 502", name: "AxiosError", code: "ERR_BAD_RESPONSE", config: {…}, request: XMLHttpRequest, response: {…} }
+    - don't see 502 in lambda logs => API gateway problem => re-enable logs?
+
 * Configure cloudwatch retention.
 
-* Replace EC2 with something that's less hassle and more modern.
+* Remove EC2 if lambda works sufficiently well.
+  - Explain why lambda isn't best fit for JVM server.
 
 * Add pip constraints file.
 
