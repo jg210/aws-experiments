@@ -1,7 +1,9 @@
-* Configure cloudwatch retention.
-
 * Remove EC2 if lambda works sufficiently well.
   - Explain why lambda isn't best fit for JVM server.
+
+* Try out redux-toolkit.
+
+* Retries with exponential backoff for failed requests (e.g. from 429 from lambda rate limiting).
 
 * Add pip constraints file.
 
