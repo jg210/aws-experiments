@@ -3,7 +3,7 @@
 This repo uses [terraform](https://www.terraform.io/) and AWS to host the [spring-experiments](https://github.com/jg210/spring-experiments) application using both:
 
 * [EC2](https://aws.amazon.com/ec2/): http://spring-experiments.jeremygreen.me.uk.
-* A [lambda function](https://aws.amazon.com/pm/lambda/) and [API gateway](https://aws.amazon.com/api-gateway/): https://aws.jeremygreen.me.uk.
+* A [lambda function](https://aws.amazon.com/pm/lambda/) and an [API gateway](https://aws.amazon.com/api-gateway/): https://aws.jeremygreen.me.uk.
 
 ## Notes
 
