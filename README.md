@@ -16,6 +16,7 @@ This repo uses [terraform](https://www.terraform.io/) and AWS to host the [sprin
 * API gateway requests are configured with heavy rate limiting (to cap lambda costs and to simulate an overloaded API), so it gives 429 HTTP responses if make too many requests. E.g. if scroll through list of local authorities too fast. Adding retries in the frontend app would mask this...
 * Monitoring is done with [UptimeRobot](https://stats.uptimerobot.com/kD80YhnAzD) (the free plan, so there's no scheduled downtime facility).
 * Lambda functions are not a good way to host a production JVM-based server since the startup time of a JVM is long. They are cheaper than a suitably sized EC2 instance (whether used directly or via e.g. ECS), and the aim here is to learn about things, not host a real server.
+* Direct EC2 use is not a good way to host an app either :-)
 
 ## Development Environment
 
