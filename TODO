@@ -1,9 +1,9 @@
 * Remove EC2 if lambda works sufficiently well.
   - Explain why lambda isn't best fit for JVM server.
 
-* Try out redux-toolkit.
-
-* Retries with exponential backoff for failed requests (e.g. from 429 from lambda rate limiting).
+* The -aws spring-experiments jar could probably be made more streamlined.
+  - doesn't need to support HTTP server
+  - faster startup by e.g. removing bean discovery.
 
 * Add pip constraints file.
 
