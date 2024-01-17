@@ -11,14 +11,14 @@ resource "aws_api_gateway_resource" "proxy" {
 resource "aws_api_gateway_method" "proxy" {
   rest_api_id = aws_api_gateway_rest_api.api.id
   resource_id = aws_api_gateway_resource.proxy.id
-  http_method = "ANY"
+  http_method = "GET"
   authorization = "NONE"
 }
 
 resource "aws_api_gateway_method" "proxy_root" {
   rest_api_id = aws_api_gateway_rest_api.api.id
   resource_id = aws_api_gateway_rest_api.api.root_resource_id
-  http_method = "ANY"
+  http_method = "GET"
   authorization = "NONE"
 }
 
@@ -28,7 +28,7 @@ resource "aws_api_gateway_integration" "lambda" {
   http_method = aws_api_gateway_method.proxy.http_method
   integration_http_method = "POST"
   type = "AWS_PROXY"
-  uri = aws_lambda_function.hello.invoke_arn
+  uri = aws_lambda_function.spring_experiments.invoke_arn
 }
 
 resource "aws_api_gateway_integration" "lambda_root" {
@@ -37,7 +37,7 @@ resource "aws_api_gateway_integration" "lambda_root" {
   http_method = aws_api_gateway_method.proxy_root.http_method
   integration_http_method = "POST"
   type = "AWS_PROXY"
-  uri = aws_lambda_function.hello.invoke_arn
+  uri = aws_lambda_function.spring_experiments.invoke_arn
  }
 
 resource "aws_api_gateway_deployment" "api_production" {
@@ -46,6 +46,17 @@ resource "aws_api_gateway_deployment" "api_production" {
     aws_api_gateway_integration.lambda_root
   ]
   rest_api_id = aws_api_gateway_rest_api.api.id
+  triggers = {
+    # "using whole resources will show a difference after the initial implementation.
+    # It will stabilize to only change when resources change afterwards."
+    redeployment = sha1(jsonencode([
+      aws_api_gateway_resource.proxy,
+      aws_api_gateway_method.proxy,
+      aws_api_gateway_method.proxy_root,
+      aws_api_gateway_integration.lambda,
+      aws_api_gateway_integration.lambda_root,
+    ]))
+  }
   stage_name  = "production"
 }
 
@@ -56,6 +67,9 @@ resource "aws_api_gateway_method_settings" "proxy" {
   settings {
     throttling_burst_limit = 5
     throttling_rate_limit = 10
+    logging_level      = "INFO"
+    metrics_enabled    = true
+    data_trace_enabled = true
   }
 }
 

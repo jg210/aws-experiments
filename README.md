@@ -1,9 +1,9 @@
 [![build status](https://github.com/jg210/aws-experiments/actions/workflows/checks.yml/badge.svg)](https://github.com/jg210/aws-experiments/actions/workflows/checks.yml)
 
-This repo uses [terraform](https://www.terraform.io/) and AWS to:
+This repo uses [terraform](https://www.terraform.io/) and AWS to host the [spring-experiments](https://github.com/jg210/spring-experiments) application using both:
 
-* Host the [spring-experiments](https://github.com/jg210/spring-experiments) application: http://spring-experiments.jeremygreen.me.uk.
-* Configure a [lambda function](resources/lambda/lambda.js) and API gateway to host a hello-world app: https://aws.jeremygreen.me.uk.
+* A [lambda function](https://aws.amazon.com/pm/lambda/) and [API gateway](https://aws.amazon.com/api-gateway/): https://aws.jeremygreen.me.uk.
+* [EC2](https://aws.amazon.com/ec2/): http://spring-experiments.jeremygreen.me.uk.
 
 ## Notes
 
@@ -13,7 +13,9 @@ This repo uses [terraform](https://www.terraform.io/) and AWS to:
 * Staying within the free tier meant there's no load balancer, just one EC2 instance behind an Elastic IP address.
 * Until Feb 2024, the Elastic IP address is not free if the EC2 instance is not running. Either keep the EC2 instance running, or destroy at least the Elastic IP address.
 * After Feb 2024, there will be a cost all the time.
+* API gateway requests are heavily rate limited, so will see 429 HTTP responses if make too many requests.
 * Monitoring is done with [UptimeRobot](https://stats.uptimerobot.com/kD80YhnAzD) (the free plan, so there's no scheduled downtime facility).
+* Lambda functions are not a good way to host a production JVM-based server since the startup time of a JVM is long. They are cheaper than a suitably sized EC2 instance (whether used directly or via e.g. ECS), and the aim here is to learn about things not host a real server.
 
 ## Development Environment
 
