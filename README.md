@@ -13,9 +13,9 @@ This repo uses [terraform](https://www.terraform.io/) and AWS to host the [sprin
 * Staying within the free tier meant there's no load balancer, just one EC2 instance behind an Elastic IP address.
 * Until Feb 2024, the Elastic IP address is not free if the EC2 instance is not running. Either keep the EC2 instance running, or destroy at least the Elastic IP address.
 * After Feb 2024, there will be a cost all the time.
-* API gateway requests are heavily rate limited, so will see 429 HTTP responses if make too many requests.
+* API gateway requests are configured with heavy rate limiting (to cap lambda costs and to simulate an overloaded API), so it gives 429 HTTP responses if make too many requests. E.g. if scroll through list of local authorities too fast. Adding retries in the frontend app would mask this...
 * Monitoring is done with [UptimeRobot](https://stats.uptimerobot.com/kD80YhnAzD) (the free plan, so there's no scheduled downtime facility).
-* Lambda functions are not a good way to host a production JVM-based server since the startup time of a JVM is long. They are cheaper than a suitably sized EC2 instance (whether used directly or via e.g. ECS), and the aim here is to learn about things not host a real server.
+* Lambda functions are not a good way to host a production JVM-based server since the startup time of a JVM is long. They are cheaper than a suitably sized EC2 instance (whether used directly or via e.g. ECS), and the aim here is to learn about things, not host a real server.
 
 ## Development Environment
 
