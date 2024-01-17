@@ -17,6 +17,7 @@ This repo uses [terraform](https://www.terraform.io/) and AWS to host the [sprin
 * Monitoring is done with [UptimeRobot](https://stats.uptimerobot.com/kD80YhnAzD) (the free plan, so there's no scheduled downtime facility).
 * Lambda functions are not a good way to host a production JVM-based server since the startup time of a JVM is long. They are cheaper than a suitably sized EC2 instance (whether used directly or via e.g. ECS), and the aim here is to learn about things, not host a real server.
 * Direct EC2 use is not a good way to host an app either :-)
+* The EC2 instance is border-line too small - close to the OOM killer stopping the java process. The next largest instance is twice the price though.
 
 ## Development Environment
 
