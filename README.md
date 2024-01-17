@@ -10,7 +10,7 @@ This repo uses [terraform](https://www.terraform.io/) and AWS to host the [sprin
 * The spring-experiments app is built using a [CI job](https://github.com/jg210/spring-experiments/actions/workflows/checks.yml) and the jar is pushed into an AWS S3 bucket.
 * [Packer](https://packer.io/) creates an AMI that runs the jar behind an nginx proxy.
 * [Terraform](terraform) creates an EC2 instance from the AMI and updates the [site](http://spring-experiments.jeremygreen.me.uk)'s DNS record.
-* Staying within the free tier meant there's no load balancer, just one EC2 instance behind an Elastic IP address.
+* Keeping costs down means there's no load balancer, just one EC2 instance behind an Elastic IP address.
 * Until Feb 2024, the Elastic IP address is not free if the EC2 instance is not running. Either keep the EC2 instance running, or destroy at least the Elastic IP address.
 * After Feb 2024, there will be a cost all the time.
 * API gateway requests are configured with heavy rate limiting (to cap lambda costs and to simulate an overloaded API), so it gives 429 HTTP responses if make too many requests. E.g. if scroll through list of local authorities too fast. Adding retries in the frontend app would mask this...
