@@ -6,6 +6,12 @@ resource "aws_lambda_function" "spring_experiments" {
   runtime = "java17"
   timeout = "15"
   role = aws_iam_role.spring_experiments.arn
+  environment {
+    variables = {
+      JAVA_TOOL_OPTIONS = "-Dlogging.level.org.springframework.web=DEBUG"
+      # JAVA_TOOL_OPTIONS = "-Dlogging.level.root=DEBUG"
+    }
+  }
 }
 
 resource "aws_iam_role" "spring_experiments" {
