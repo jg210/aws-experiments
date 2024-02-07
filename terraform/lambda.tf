@@ -1,11 +1,23 @@
+data "aws_s3_object" "lambda" {
+  bucket = "aws-experiments"
+  key    = "artifacts/uk/me/jeremygreen/spring-experiments/1.0/spring-experiments-1.0-aws.jar"
+}
+
 resource "aws_lambda_function" "spring_experiments" {
   function_name = "spring_experiments"
-  s3_bucket = "aws-experiments"
-  s3_key = "artifacts/uk/me/jeremygreen/spring-experiments/1.0/spring-experiments-1.0-aws.jar"
+  s3_bucket = data.aws_s3_object.lambda.bucket
+  s3_key = data.aws_s3_object.lambda.key
+  source_code_hash = data.aws_s3_object.lambda.etag
   handler = "uk.me.jeremygreen.springexperiments.StreamLambdaHandler::handleRequest"
   runtime = "java17"
   timeout = "15"
   role = aws_iam_role.spring_experiments.arn
+  environment {
+    variables = {
+      JAVA_TOOL_OPTIONS = "-Dlogging.level.org.springframework.web=DEBUG"
+      # JAVA_TOOL_OPTIONS = "-Dlogging.level.root=DEBUG"
+    }
+  }
 }
 
 resource "aws_iam_role" "spring_experiments" {
