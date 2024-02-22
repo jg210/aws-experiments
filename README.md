@@ -31,6 +31,7 @@ These instructions are for Ubuntu and bash.
 * Rename terraform and packer executables to add version suffix - e.g. terraform-1.2.3.
 * Put renamed terraform and packer executables in directory that is on PATH.
 * Create ~/.dns-api-password and ~/.dns-api-url with appropriate content and permissions etc.
+* Set PKR_VAR_SENTRY_DSN_SPRING_EXPERIMENTS and PKR_VAR_SENTRY_DSN_SPRING_EXPERIMENTS env. vars. to sentry.io [DSN](https://docs.sentry.io/product/sentry-basics/concepts/dsn-explainer/) for spring-experiments project.
 * Run (from a bash shell):
 
 ```

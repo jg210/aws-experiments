@@ -33,6 +33,10 @@ variable "aws_secret_key" {
   default = ""
 }
 
+variable "SENTRY_DSN_SPRING_EXPERIMENTS" {
+  type = string  
+}
+
 data "amazon-ami" "ami" {
   access_key = "${var.aws_access_key}"
   filters = {
@@ -62,6 +66,9 @@ build {
 
   provisioner "shell" {
     script = "./resources/bin/provision"
+    environment_vars = [
+      "SENTRY_DSN_SPRING_EXPERIMENTS=${var.SENTRY_DSN_SPRING_EXPERIMENTS}"
+    ]
   }
 
 }

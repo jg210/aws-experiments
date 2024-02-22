@@ -79,7 +79,7 @@ After=syslog.target
 
 [Service]
 User=${springExperimentsUser}
-ExecStart=/usr/bin/java -jar "${jar}" -Xms80m -Xmx80m
+ExecStart=/usr/bin/java -jar "${jar}" -Xms80m -Xmx80m -Dsentry.dsn="${SENTRY_DSN_SPRING_EXPERIMENTS}"
 
 [Install]
 WantedBy=multi-user.target
