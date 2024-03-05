@@ -23,6 +23,11 @@
   - would need cloudfront?
     - https://stackoverflow.com/a/47373353
 
+* Exponential backoff for service restarts
+  - https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html#RestartSteps=
+  - needs systemd 254
+    - only have 249
+
 * Automated staged deployment.
   - packer validate every commit
   - automated daily rebuilds
