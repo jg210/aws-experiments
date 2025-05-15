@@ -7,6 +7,8 @@
 
 * Add pip constraints file.
 
+* bash completion for packer.
+
 * Move commands from README.md to ~/bin/setup
 
 * EBS snapshots were building up.
