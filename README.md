@@ -5,7 +5,7 @@ This repo uses [terraform](https://www.terraform.io/) and AWS to host the [sprin
 ## Notes
 
 * The spring-experiments app is built using a [CI job](https://github.com/jg210/spring-experiments/actions/workflows/checks.yml) and the jar is pushed into an AWS S3 bucket.
-* API gateway requests are configured with heavy rate limiting (to cap lambda costs and to simulate an overloaded API), so it gives 429 HTTP responses if make too many requests. E.g. if scroll through list of local authorities too fast. [Retries](https://github.com/jg210/spring-experiments/pull/41) in the frontend app hides this from the user.
+* API gateway requests are configured with heavy rate limiting (to cap lambda costs and to simulate an overloaded API), so it gives 429 HTTP responses if make too many requests. E.g. if scroll through list of local authorities too fast. [Retries](https://github.com/jg210/spring-experiments/pull/41) in the frontend app hide this from the user.
 * Monitoring is done with [UptimeRobot](https://stats.uptimerobot.com/kD80YhnAzD) (the free plan, so there's no scheduled downtime facility).
 * Lambda functions are not a good way to host a production JVM-based server since the startup time of a JVM is long. Spring auto-configuration etc. takes time too.
 * Latency could be partially mitigated with [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) or an external system polling the API to keep lambda instance alive (though this wouldn't help if/when need more than one instance).
