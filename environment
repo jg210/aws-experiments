@@ -23,9 +23,3 @@ if which terraform > /dev/null ; then
 else
     printf "%s\n" "terraform is not installed - see README.md." > /dev/stderr
 fi
-
-if which packer > /dev/null ; then
-    complete -C "$(which packer)" packer
-else
-    printf "%s\n" "packer is not installed - see README.md." > /dev/stderr
-fi
