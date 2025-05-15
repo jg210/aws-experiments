@@ -39,47 +39,20 @@ data "aws_iam_policy_document" "aws-experiments-upload" {
     resources = ["${aws_s3_bucket.aws-experiments.arn}"]
   }
 }
-
 resource "aws_iam_group_policy" "aws-experiments-upload" {
   name = "aws-experiments-upload"
   policy = data.aws_iam_policy_document.aws-experiments-upload.json
   group = aws_iam_group.aws-experiments-upload.id
 }
 
-data "aws_iam_policy_document" "server_role" {
-  statement {
-    actions = ["sts:AssumeRole"]
-    principals {
-      type = "Service"
-      identifiers = ["ec2.amazonaws.com"]
-    }
-  }
-}
-
-resource "aws_iam_role" "aws_experiments_download" {
-  name = "aws_experiments_download"
-  assume_role_policy = data.aws_iam_policy_document.server_role.json
-}
-
-resource "aws_iam_instance_profile" "aws_experiments_download" {
-    name = "aws_experiments_download"
-    role = aws_iam_role.aws_experiments_download.name
-}
-
-# Allow download by https://github.com/jg210/aws-experiments/blob/master/resources/bin/provision when running packer.
+# Allow download by e.g. lambda (the aws_iam_role_policy_attachments are configured elsewhere).
 data "aws_iam_policy_document" "aws_experiments_download" {
   statement {
     actions = ["s3:GetObject"]
     resources = ["${aws_s3_bucket.aws-experiments.arn}/artifacts/*"]
   }
 }
-
 resource "aws_iam_policy" "aws_experiments_download" {
   name = "aws_experiments_download"
   policy = data.aws_iam_policy_document.aws_experiments_download.json
-}
-
-resource "aws_iam_role_policy_attachment" "aws_experiments_download" {
-    role = aws_iam_role.aws_experiments_download.id
-    policy_arn = aws_iam_policy.aws_experiments_download.arn
 }

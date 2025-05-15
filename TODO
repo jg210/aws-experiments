@@ -1,13 +1,8 @@
-* Remove EC2 if lambda works sufficiently well.
-  - Explain why lambda isn't best fit for JVM server.
-
-* The -aws spring-experiments jar could probably be made more streamlined.
-  - doesn't need to support HTTP server
+* The spring-experiments jar could be made more streamlined.
+  - doesn't need to support HTTP server since only deploy with lambda
   - faster startup by e.g. removing bean discovery.
 
 * Add pip constraints file.
-
-* bash completion for packer.
 
 * Move commands from README.md to ~/bin/setup
 
@@ -23,22 +18,7 @@
   - would need cloudfront?
     - https://stackoverflow.com/a/47373353
 
-* Exponential backoff for service restarts
-  - https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html#RestartSteps=
-  - needs systemd 254
-    - only have 249
-
 * Automated staged deployment.
-  - packer validate every commit
-  - automated daily rebuilds
-    - with testing before deployed.
-  - tag packer EC2 instances etc.
-  - automatically delete old packer-related resources in periodic job.
-
-* Circular dependency between packer and terraform.
-  - artifacts.tf defines role that is required by packer
-    => split terraform into pre- and post-packer parts?
-    - otherwise will get failures when first set things up.
 
 * aws CLI 2.x.
   - isn't available via pypi/pip
@@ -51,52 +31,6 @@
       - https://www.monterail.com/blog/chicken-or-egg-terraforms-remote-backend
   - store terraform dependency-graph svg and link to it from README.md.
 
-* Terraform only asks for ssh keychain password when needs it, but only gives you five minutes to supply password.
-  - unlock keychain earlier.
-
-* AWS ssh key resource prevents deployment from multiple hosts.
-
 * Move ruby config to separate repo since not used any more.
 
-* Wrap environment setup in scripts.
-
 * "terraform plan" still outputs terminal control sequences if pipe stdout to less.
-
-* EC2 improvements.
-  - configuration management system, not shell script.
-  - https
-  - redirect http to https.
-  - wait for server to start up before declaring deployment complete.
-  - destroy ec2 instance only after creating new one?
-    - will cost a little money.
-  - periodic automated package updates.
-  - terraform replaces EIP if taint ec2 server.
-  - tighten up egress permissions.
-  - automatic restarts on EC2 failure
-    - configure autoscaling group?
-      - one subnet per AZ
-      - one instance max to stay within free tier
-      - have to use a hack to keep same Elastic IP address when restart.
-    - configure cloudwatch?
-      - would lose service if AZ fails
-      - IP address retained.
-  - NTP
-    - ntp.ubuntu.com inaccessible from the EC2 instance.
-      - errors in syslog
-    - amazon provide 169.254.169.123
-      - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html
-
-* EC2 cloudformation config only allows one ssh public key per instance...
-  - https://stackoverflow.com/questions/24409095/create-an-ec2-instance-with-multiple-key-pairs
-  - so how can you log in from multiple home directories?
-    - sharing a private key is not acceptable, especially not between users.
-    - using parameter means could have one instance per ssh key, but that's not useful.
-    - reupload key each time change home directories?
-    - generate new key each time deploy instance, throwing away as soon as have provisioned instance properly.
-    - build and deploy AMI containing public keys
-
-* Automated EC2 deployments.
-  - would need to do things like this to have python and ruby in travis.
-    - https://github.com/travis-ci/travis-ci/issues/4090
-  - a docker-based testing platform would be more convenient.
-  - generate change set on branches don't deploy from.

@@ -16,16 +16,6 @@ jobs:
       with:
         terraform_version: "1.5.6"
 
-    - uses: hashicorp/setup-packer@v2.0.1
-      with:
-        version: "1.10.0"
-
-    - name: packer init
-      run: packer init ./packer.pkr.hcl
-
-    - name: packer validate
-      run: packer validate ./packer.pkr.hcl
-
     - name: terraform init
       run: cd terraform && terraform init -backend=false
 
