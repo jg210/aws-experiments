@@ -36,7 +36,7 @@ data "aws_iam_policy_document" "aws-experiments-upload" {
   }
   statement {
     actions = ["s3:ListBucket"]
-    resources = ["${aws_s3_bucket.aws-experiments.arn}"]
+    resources = [aws_s3_bucket.aws-experiments.arn]
   }
 }
 resource "aws_iam_group_policy" "aws-experiments-upload" {
