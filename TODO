@@ -4,6 +4,15 @@
     - https://github.com/jg210/aws-experiments/pull/22#issuecomment-3426102790
     - get them to fix this?
     - separate venvs for the two tools?
+    - run v1 from docker?
+    - awscli v2 might help?
+      - https://github.com/aws/aws-cli/issues/4947
+        - so no official package for pip
+      - https://pypi.org/project/awscliv2/
+        - unofficial
+      - https://github.com/aws/aws-cli/tree/v2?tab=readme-ov-file#installation
+        - only some useless installer tool
+      - run from docker?
 
 * Alternatives to requirements.txt and constraints.txt
   - they don't remove packages that aren't listed
@@ -18,10 +27,6 @@
   - faster startup by e.g. removing bean discovery.
 
 * Move commands from README.md to ~/bin/setup
-
-* EBS snapshots were building up.
-  - what was creating them?
-  - create snapshot lifecycle policy?
 
 * Try out terraform registry modules for lambda functions etc.
   - https://registry.terraform.io/modules/howdio/lambda/aws/0.2.1
@@ -43,7 +48,5 @@
     - this might allow multiple backends?
       - https://www.monterail.com/blog/chicken-or-egg-terraforms-remote-backend
   - store terraform dependency-graph svg and link to it from README.md.
-
-* Move ruby config to separate repo since not used any more.
 
 * "terraform plan" still outputs terminal control sequences if pipe stdout to less.
