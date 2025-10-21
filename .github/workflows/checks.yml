@@ -37,8 +37,8 @@ jobs:
       run: cd terraform && terraform validate
 
     # TODO cache the package
-    - name: install graphviz (dot)
-      run: sudo apt-get install -y graphviz
+    # - name: install graphviz (dot)
+    #   run: sudo apt-get install -y graphviz
 
     # - name: terraform graph
     #   run: cd terraform && terraform graph -draw-cycles | dot -Tsvg -Gconcentrate=true > terraform.svg
