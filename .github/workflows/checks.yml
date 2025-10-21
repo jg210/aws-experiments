@@ -36,6 +36,11 @@ jobs:
     - name: terraform validate
       run: cd terraform && terraform validate
 
+    - name: tflint
+      run: |
+        . environment
+        tflint --chdir terraform
+
     # TODO cache the package
     # - name: install graphviz (dot)
     #   run: sudo apt-get install -y graphviz
