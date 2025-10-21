@@ -5,11 +5,6 @@
     - get them to fix this?
     - separate venvs for the two tools?
 
-* tflint?
-  - how can it be installed in a nice way?
-    - docker?
-    - repurpose https://github.com/jg210/expo-experiments/blob/master/scripts/install_maestro?
-
 * Alternatives to requirements.txt and constraints.txt
   - they don't remove packages that aren't listed
   - alternatives?
