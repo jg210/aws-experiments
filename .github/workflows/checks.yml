@@ -16,6 +16,20 @@ jobs:
       with:
         terraform_version: "1.5.6"
 
+    - uses: actions/setup-python@v6.0.0
+      with:
+        cache: 'pip'
+        cache-dependency-path: constraints.txt
+
+    - name: python version
+      run: python --version
+
+    - name: pip version
+      run: pip --version
+
+    - name: aws CLI version
+      run: aws --version
+
     - name: terraform init
       run: cd terraform && terraform init -backend=false
 
@@ -23,8 +37,8 @@ jobs:
       run: cd terraform && terraform validate
 
     # TODO cache the package
-    - name: install graphviz (dot)
-      run: sudo apt-get install -y graphviz
+    # - name: install graphviz (dot)
+    #   run: sudo apt-get install -y graphviz
 
     # - name: terraform graph
     #   run: cd terraform && terraform graph -draw-cycles | dot -Tsvg -Gconcentrate=true > terraform.svg
