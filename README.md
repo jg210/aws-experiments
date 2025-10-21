@@ -2,6 +2,11 @@
 
 This repo uses [terraform](https://www.terraform.io/) and AWS to host the [spring-experiments](https://github.com/jg210/spring-experiments) application using a [lambda function](https://aws.amazon.com/pm/lambda/) and [API gateway](https://aws.amazon.com/api-gateway/): https://aws.jeremygreen.me.uk.
 
+Static analysis is run on GitHub actions:
+
+* [terraform validate](https://developer.hashicorp.com/terraform/cli/commands/validate)
+* [tflint](https://github.com/terraform-linters/tflint)
+
 ## Notes
 
 * The spring-experiments app is built using a [CI job](https://github.com/jg210/spring-experiments/actions/workflows/checks.yml) and the jar is pushed into an AWS S3 bucket.
