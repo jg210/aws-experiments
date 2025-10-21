@@ -1,1 +1,2 @@
+-c constraints.txt
 awscli==1.31.12

@@ -57,3 +57,12 @@ terraform apply
 ```
 
 An S3 bucket is used to store the terraform state. If this bucket doesn't exist yet, temporarily comment out the "backend" configuration in [main.tf](main.tf) while deploying, and it will be created for you (and then your temporary local state will get migrated to S3). This trick will only work if are deploying for the first time.
+
+## Upgrading python dependencies
+
+Update requirements.txt, then:
+
+```
+pip install -r requirements.txt
+pip freeze > constraints.txt
+```

@@ -2,8 +2,6 @@
   - doesn't need to support HTTP server since only deploy with lambda
   - faster startup by e.g. removing bean discovery.
 
-* Add pip constraints file.
-
 * Move commands from README.md to ~/bin/setup
 
 * EBS snapshots were building up.
