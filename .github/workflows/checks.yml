@@ -27,6 +27,9 @@ jobs:
     - name: pip version
       run: pip --version
 
+    - name: python venv
+      run: python -m venv --clear .venv
+
     - name: aws CLI version
       run: aws --version
 
