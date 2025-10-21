@@ -1,3 +1,10 @@
+* checkov terraform static analysis?
+  - finds lots of issues
+  - conflicts with awscli via botocore depencencies
+    - https://github.com/jg210/aws-experiments/pull/22#issuecomment-3426102790
+    - get them to fix this?
+    - separate venvs for the two tools?
+
 * tflint?
   - how can it be installed in a nice way?
     - docker?
