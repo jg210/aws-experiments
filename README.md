@@ -60,7 +60,7 @@ An S3 bucket is used to store the terraform state. If this bucket doesn't exist 
 
 ## Upgrading python dependencies
 
-Update requirements.txt, then:
+Update requirements.txt, maybe adjust (or empty) constraints.txt, then:
 
 ```
 pip install -r requirements.txt
