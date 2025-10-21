@@ -5,7 +5,7 @@ This repo uses [terraform](https://www.terraform.io/) and AWS to host the [sprin
 Static analysis is run on GitHub actions:
 
 * [terraform validate](https://developer.hashicorp.com/terraform/cli/commands/validate)
-* [tfline](https://github.com/terraform-linters/tflint)
+* [tflint](https://github.com/terraform-linters/tflint)
 
 ## Notes
 
