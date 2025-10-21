@@ -10,6 +10,14 @@
     - docker?
     - repurpose https://github.com/jg210/expo-experiments/blob/master/scripts/install_maestro?
 
+* Alternatives to requirements.txt and constraints.txt
+  - they don't remove packages that aren't listed
+  - alternatives?
+    - pip lock?
+    - pipenv?
+    - poetry?
+    - ???
+
 * The spring-experiments jar could be made more streamlined.
   - doesn't need to support HTTP server since only deploy with lambda
   - faster startup by e.g. removing bean discovery.
