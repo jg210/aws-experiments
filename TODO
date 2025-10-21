@@ -1,5 +1,7 @@
 * tflint?
   - how can it be installed in a nice way?
+    - docker?
+    - repurpose https://github.com/jg210/expo-experiments/blob/master/scripts/install_maestro?
 
 * The spring-experiments jar could be made more streamlined.
   - doesn't need to support HTTP server since only deploy with lambda
