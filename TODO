@@ -32,3 +32,5 @@
 * "terraform plan" still outputs terminal control sequences if pipe stdout to less.
 
 * pip shell completion
+
+* Cache docker images on CI.
