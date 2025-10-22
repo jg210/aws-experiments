@@ -30,6 +30,10 @@ jobs:
     - name: python venv
       run: python -m venv --clear .venv
 
+    - name: pip install
+      run: |
+        pip install -r requirements.txt
+
     - name: aws CLI version
       run: aws --version
 
