@@ -47,6 +47,7 @@ jobs:
     - name: checkov
       run: |
         . environment
+        env | sort
         checkov -d terraform
 
     # TODO cache the package
