@@ -25,6 +25,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "aws-experiments-terraform-state" {
+    #checkov:skip=CKV_AWS_21:don't need versioning
     bucket = "aws-experiments-terraform-state"
     lifecycle {
       prevent_destroy = true
