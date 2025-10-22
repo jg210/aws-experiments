@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "aws-experiments" {
     #checkov:skip=CKV_AWS_21:don't need versioning
+    #checkov:skip=CKV_AWS_144:don't want cross-region replication
     bucket = "aws-experiments"
     lifecycle {
       prevent_destroy = true
