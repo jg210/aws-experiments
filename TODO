@@ -13,6 +13,7 @@
       - https://github.com/aws/aws-cli/tree/v2?tab=readme-ov-file#installation
         - only some useless installer tool
       - run from docker?
+        - https://hub.docker.com/r/amazon/aws-cli
 
 * Alternatives to requirements.txt and constraints.txt
   - they don't remove packages that aren't listed
