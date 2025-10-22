@@ -34,9 +34,6 @@ jobs:
       run: |
         pip install -r requirements.txt
 
-    - name: aws CLI version
-      run: aws --version
-
     - name: terraform init
       run: cd terraform && terraform init -backend=false
 
@@ -61,3 +58,8 @@ jobs:
     #   run: cd terraform && terraform graph -draw-cycles | dot -Tsvg -Gconcentrate=true > terraform.svg
 
       # TODO store terraform.svg as artifact
+
+    - name: aws CLI version
+      run: |
+        . environment
+        aws --version
