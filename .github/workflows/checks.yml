@@ -44,10 +44,15 @@ jobs:
         . environment
         tflint --chdir terraform
 
+    - name: ls -l .venv/bin
+      run: ls -l .venv/bin
+
+    - name: which checkov
+      run: which checkov
+
     - name: checkov
       run: |
         . environment
-        env | sort
         checkov -d terraform
 
     # TODO cache the package
