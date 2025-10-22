@@ -44,6 +44,11 @@ jobs:
         . environment
         tflint --chdir terraform
 
+    - name: checkov
+      run: |
+        . environment
+        checkov -d terraform
+
     # TODO cache the package
     # - name: install graphviz (dot)
     #   run: sudo apt-get install -y graphviz

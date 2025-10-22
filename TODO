@@ -1,20 +1,3 @@
-* checkov terraform static analysis?
-  - finds lots of issues
-  - conflicts with awscli via botocore depencencies
-    - https://github.com/jg210/aws-experiments/pull/22#issuecomment-3426102790
-    - get them to fix this?
-    - separate venvs for the two tools?
-    - run v1 from docker?
-    - awscli v2 might help?
-      - https://github.com/aws/aws-cli/issues/4947
-        - so no official package for pip
-      - https://pypi.org/project/awscliv2/
-        - unofficial
-      - https://github.com/aws/aws-cli/tree/v2?tab=readme-ov-file#installation
-        - only some useless installer tool
-      - run from docker?
-        - https://hub.docker.com/r/amazon/aws-cli
-
 * Alternatives to requirements.txt and constraints.txt
   - they don't remove packages that aren't listed
   - alternatives?
@@ -39,10 +22,6 @@
 
 * Automated staged deployment.
 
-* aws CLI 2.x.
-  - isn't available via pypi/pip
-    - https://github.com/aws/aws-cli/issues/4947
-
 * Automated tests.
   - https://www.terraform.io/docs/github-actions/getting-started/index.html?
   - terraform graph step commented out since terraform S3 backend needs AWS credentials
@@ -51,3 +30,5 @@
   - store terraform dependency-graph svg and link to it from README.md.
 
 * "terraform plan" still outputs terminal control sequences if pipe stdout to less.
+
+* pip shell completion
