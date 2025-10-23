@@ -1,5 +1,8 @@
 * resource "aws_lambda_function" "spring_experiments" is always updated
   - source_code_hash changing
+  - source_code_hash needs to be "Base64-encoded SHA256 hash of the package file"
+  - etag isn't suitable
+  - might have to compute fingerprint outside terraform and pass in somehow?
 
 * Alternatives to requirements.txt and constraints.txt
   - they don't remove packages that aren't listed
