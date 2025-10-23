@@ -46,6 +46,9 @@ resource "aws_api_gateway_deployment" "api_production" {
     aws_api_gateway_integration.lambda_root
   ]
   rest_api_id = aws_api_gateway_rest_api.api.id
+  lifecycle {
+    create_before_destroy = true
+  }
   triggers = {
     # "using whole resources will show a difference after the initial implementation.
     # It will stabilize to only change when resources change afterwards."
