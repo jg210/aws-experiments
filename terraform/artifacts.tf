@@ -3,6 +3,7 @@ resource "aws_s3_bucket" "aws-experiments" {
     #checkov:skip=CKV_AWS_144:don't want cross-region replication
     #checkov:skip=CKV2_AWS_61:don't need lifecycle management and don't want expiry
     #checkov:skip=CKV2_AWS_62:don't want event notification
+    #checkov:skip=CKV_AWS_18:don't want logging
     bucket = "aws-experiments"
     lifecycle {
       prevent_destroy = true
