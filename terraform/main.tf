@@ -35,6 +35,12 @@ resource "aws_s3_bucket" "aws-experiments-terraform-state" {
     }
 }
 
+resource "aws_s3_bucket_public_access_block" "access-aws-experiments-terraform-state" {
+  bucket = aws_s3_bucket.aws-experiments-terraform-state.id
+  block_public_acls = true
+  block_public_policy = true
+}
+
 resource "aws_s3_bucket_versioning" "aws-experiments-terraform-state" {
   bucket = aws_s3_bucket.aws-experiments-terraform-state.id
   versioning_configuration {
