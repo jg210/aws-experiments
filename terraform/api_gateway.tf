@@ -69,6 +69,7 @@ resource "aws_api_gateway_deployment" "api_production" {
 }
 
 resource "aws_api_gateway_method_settings" "proxy" {
+  #checkov:skip=CKV_AWS_225:don't want caching by gateway - not enough traffic to be worth effort
   rest_api_id = aws_api_gateway_rest_api.api.id
   stage_name = aws_api_gateway_deployment.api_production.stage_name
   method_path = "*/*"
