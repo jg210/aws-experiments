@@ -41,6 +41,7 @@ resource "aws_s3_bucket_public_access_block" "access-aws-experiments-terraform-s
   block_public_acls = true
   block_public_policy = true
   restrict_public_buckets = true
+  ignore_public_acls=true
 }
 
 resource "aws_s3_bucket_versioning" "aws-experiments-terraform-state" {
