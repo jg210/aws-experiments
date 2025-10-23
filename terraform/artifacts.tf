@@ -9,6 +9,12 @@ resource "aws_s3_bucket" "aws-experiments" {
     }
 }
 
+resource "aws_s3_bucket_public_access_block" "access-aws-experiments" {
+  bucket = aws_s3_bucket.aws-experiments.id
+  block_public_acls   = true
+  block_public_policy = true
+}
+
 resource "aws_s3_bucket_versioning" "aws-experiments" {
   bucket = aws_s3_bucket.aws-experiments.id
   versioning_configuration {
