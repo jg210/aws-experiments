@@ -1,3 +1,6 @@
+* resource "aws_lambda_function" "spring_experiments" is always updated
+  - source_code_hash changing
+
 * Alternatives to requirements.txt and constraints.txt
   - they don't remove packages that aren't listed
   - alternatives?
