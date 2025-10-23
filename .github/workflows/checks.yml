@@ -48,7 +48,7 @@ jobs:
     - name: checkov
       run: |
         . environment
-        checkov -d terraform
+        checkov -d terraform --quiet
 
     # TODO cache the package
     # - name: install graphviz (dot)
