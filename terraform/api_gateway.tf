@@ -13,6 +13,7 @@ resource "aws_api_gateway_resource" "proxy" {
 
 resource "aws_api_gateway_method" "proxy" {
   #checkov:skip=CKV_AWS_59:it is an intentionally public API
+  #checkov:skip=CKV2_AWS_53:don't want validation
   rest_api_id = aws_api_gateway_rest_api.api.id
   resource_id = aws_api_gateway_resource.proxy.id
   http_method = "GET"
@@ -21,6 +22,7 @@ resource "aws_api_gateway_method" "proxy" {
 
 resource "aws_api_gateway_method" "proxy_root" {
   #checkov:skip=CKV_AWS_59:it is an intentionally public API
+  #checkov:skip=CKV2_AWS_53:don't want validation
   rest_api_id = aws_api_gateway_rest_api.api.id
   resource_id = aws_api_gateway_rest_api.api.root_resource_id
   http_method = "GET"
