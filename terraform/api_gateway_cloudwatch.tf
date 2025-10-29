@@ -32,6 +32,7 @@ resource "aws_iam_role_policy_attachment" "main" {
 }
 
 resource "aws_cloudwatch_log_group" "api_gateway" {
+  #checkov:skip=CKV_AWS_338:don't want to pay for over 365 days of log retention
   name = "API-Gateway-Execution-Logs_${aws_api_gateway_rest_api.api.id}/production"
   retention_in_days = 7
 }
