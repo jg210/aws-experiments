@@ -40,3 +40,7 @@
 * pip shell completion
 
 * Cache docker images on CI.
+
+* AWS X-Ray tracing?
+  - need to instrument app?
+    - https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-java.html
