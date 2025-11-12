@@ -47,3 +47,4 @@
 
 * KMS encryption of state?
   - CKV_AWS_145 - terraform state
+  - CKV_AWS_158 - lambda and API gateway logs

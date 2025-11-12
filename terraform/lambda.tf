@@ -58,6 +58,7 @@ resource "aws_lambda_permission" "spring_experiments" {
 
 resource "aws_cloudwatch_log_group" "spring_experiments" {
   #checkov:skip=CKV_AWS_338:don't want to pay for over 365 days of log retention
+  #checkov:skip=CKV_AWS_158:TODO KMS encryption?
   name = "/aws/lambda/spring_experiments"
   retention_in_days = 7
 }
