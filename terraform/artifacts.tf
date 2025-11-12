@@ -4,6 +4,7 @@ resource "aws_s3_bucket" "aws-experiments" {
     #checkov:skip=CKV2_AWS_61:don't need lifecycle management and don't want expiry
     #checkov:skip=CKV2_AWS_62:don't want event notification
     #checkov:skip=CKV_AWS_18:don't want logging
+    #checkov:skip=CKV_AWS_145:don't need KMS encryption
     bucket = "aws-experiments"
     lifecycle {
       prevent_destroy = true

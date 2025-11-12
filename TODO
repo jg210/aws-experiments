@@ -44,3 +44,6 @@
 * AWS X-Ray tracing?
   - need to instrument app?
     - https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-java.html
+
+* KMS encryption of state?
+  - CKV_AWS_145 - terraform state
