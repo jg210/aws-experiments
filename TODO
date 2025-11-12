@@ -48,3 +48,7 @@
 * KMS encryption of state?
   - CKV_AWS_145 - terraform state
   - CKV_AWS_158 - lambda and API gateway logs
+
+* Code signing for AWS lambda jar?
+  - https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-272
+  - CKV_AWS_272

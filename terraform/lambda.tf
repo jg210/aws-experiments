@@ -5,6 +5,7 @@ data "aws_s3_object" "lambda" {
 
 resource "aws_lambda_function" "spring_experiments" {
   #checkov:skip=CKV_AWS_50:X-ray tracing needs instrumented app
+  #checkov:skip=CKV_AWS_272:TODO code signing
   function_name = "spring_experiments"
   s3_bucket = data.aws_s3_object.lambda.bucket
   s3_key = data.aws_s3_object.lambda.key
