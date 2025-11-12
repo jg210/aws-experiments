@@ -1,8 +1,22 @@
 resource "aws_s3_bucket" "aws-experiments" {
+    #checkov:skip=CKV_AWS_21:don't need versioning
+    #checkov:skip=CKV_AWS_144:don't want cross-region replication
+    #checkov:skip=CKV2_AWS_61:don't need lifecycle management and don't want expiry
+    #checkov:skip=CKV2_AWS_62:don't want event notification
+    #checkov:skip=CKV_AWS_18:don't want logging
+    #checkov:skip=CKV_AWS_145:don't need KMS encryption
     bucket = "aws-experiments"
     lifecycle {
       prevent_destroy = true
     }
+}
+
+resource "aws_s3_bucket_public_access_block" "access-aws-experiments" {
+  bucket = aws_s3_bucket.aws-experiments.id
+  block_public_acls   = true
+  block_public_policy = true
+  restrict_public_buckets = true
+  ignore_public_acls=true
 }
 
 resource "aws_s3_bucket_versioning" "aws-experiments" {

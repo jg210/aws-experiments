@@ -1,0 +1,2 @@
+#!/bin/bash
+exec docker run --rm -ti -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli:2.31.19

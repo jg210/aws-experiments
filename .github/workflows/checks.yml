@@ -30,8 +30,9 @@ jobs:
     - name: python venv
       run: python -m venv --clear .venv
 
-    - name: aws CLI version
-      run: aws --version
+    - name: pip install
+      run: |
+        pip install -r requirements.txt
 
     - name: terraform init
       run: cd terraform && terraform init -backend=false
@@ -44,6 +45,11 @@ jobs:
         . environment
         tflint --chdir terraform
 
+    - name: checkov
+      run: |
+        . environment
+        checkov -d terraform --quiet
+
     # TODO cache the package
     # - name: install graphviz (dot)
     #   run: sudo apt-get install -y graphviz
@@ -52,3 +58,8 @@ jobs:
     #   run: cd terraform && terraform graph -draw-cycles | dot -Tsvg -Gconcentrate=true > terraform.svg
 
       # TODO store terraform.svg as artifact
+
+    - name: aws CLI version
+      run: |
+        . environment
+        aws --version

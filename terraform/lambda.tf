@@ -4,12 +4,15 @@ data "aws_s3_object" "lambda" {
 }
 
 resource "aws_lambda_function" "spring_experiments" {
+  #checkov:skip=CKV_AWS_50:X-ray tracing needs instrumented app
+  #checkov:skip=CKV_AWS_272:TODO code signing
   function_name = "spring_experiments"
   s3_bucket = data.aws_s3_object.lambda.bucket
   s3_key = data.aws_s3_object.lambda.key
   source_code_hash = data.aws_s3_object.lambda.etag
   handler = "uk.me.jeremygreen.springexperiments.StreamLambdaHandler::handleRequest"
   runtime = "java17"
+  reserved_concurrent_executions = 5
   timeout = "15"
   role = aws_iam_role.spring_experiments.arn
   environment {
@@ -55,6 +58,8 @@ resource "aws_lambda_permission" "spring_experiments" {
 }
 
 resource "aws_cloudwatch_log_group" "spring_experiments" {
+  #checkov:skip=CKV_AWS_338:don't want to pay for over 365 days of log retention
+  #checkov:skip=CKV_AWS_158:TODO KMS encryption?
   name = "/aws/lambda/spring_experiments"
   retention_in_days = 7
 }

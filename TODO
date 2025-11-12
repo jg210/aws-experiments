@@ -1,19 +1,8 @@
-* checkov terraform static analysis?
-  - finds lots of issues
-  - conflicts with awscli via botocore depencencies
-    - https://github.com/jg210/aws-experiments/pull/22#issuecomment-3426102790
-    - get them to fix this?
-    - separate venvs for the two tools?
-    - run v1 from docker?
-    - awscli v2 might help?
-      - https://github.com/aws/aws-cli/issues/4947
-        - so no official package for pip
-      - https://pypi.org/project/awscliv2/
-        - unofficial
-      - https://github.com/aws/aws-cli/tree/v2?tab=readme-ov-file#installation
-        - only some useless installer tool
-      - run from docker?
-        - https://hub.docker.com/r/amazon/aws-cli
+* resource "aws_lambda_function" "spring_experiments" is always updated
+  - source_code_hash changing
+  - source_code_hash needs to be "Base64-encoded SHA256 hash of the package file"
+  - etag isn't suitable
+  - might have to compute fingerprint outside terraform and pass in somehow?
 
 * Alternatives to requirements.txt and constraints.txt
   - they don't remove packages that aren't listed
@@ -39,10 +28,6 @@
 
 * Automated staged deployment.
 
-* aws CLI 2.x.
-  - isn't available via pypi/pip
-    - https://github.com/aws/aws-cli/issues/4947
-
 * Automated tests.
   - https://www.terraform.io/docs/github-actions/getting-started/index.html?
   - terraform graph step commented out since terraform S3 backend needs AWS credentials
@@ -51,3 +36,19 @@
   - store terraform dependency-graph svg and link to it from README.md.
 
 * "terraform plan" still outputs terminal control sequences if pipe stdout to less.
+
+* pip shell completion
+
+* Cache docker images on CI.
+
+* AWS X-Ray tracing?
+  - need to instrument app?
+    - https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-java.html
+
+* KMS encryption of state?
+  - CKV_AWS_145 - terraform state
+  - CKV_AWS_158 - lambda and API gateway logs
+
+* Code signing for AWS lambda jar?
+  - https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-272
+  - CKV_AWS_272

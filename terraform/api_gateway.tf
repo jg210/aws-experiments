@@ -1,5 +1,8 @@
 resource "aws_api_gateway_rest_api" "api" {
   name = "api"
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "aws_api_gateway_resource" "proxy" {
@@ -9,6 +12,8 @@ resource "aws_api_gateway_resource" "proxy" {
 }
 
 resource "aws_api_gateway_method" "proxy" {
+  #checkov:skip=CKV_AWS_59:it is an intentionally public API
+  #checkov:skip=CKV2_AWS_53:don't want validation
   rest_api_id = aws_api_gateway_rest_api.api.id
   resource_id = aws_api_gateway_resource.proxy.id
   http_method = "GET"
@@ -16,6 +21,8 @@ resource "aws_api_gateway_method" "proxy" {
 }
 
 resource "aws_api_gateway_method" "proxy_root" {
+  #checkov:skip=CKV_AWS_59:it is an intentionally public API
+  #checkov:skip=CKV2_AWS_53:don't want validation
   rest_api_id = aws_api_gateway_rest_api.api.id
   resource_id = aws_api_gateway_rest_api.api.root_resource_id
   http_method = "GET"
@@ -46,6 +53,9 @@ resource "aws_api_gateway_deployment" "api_production" {
     aws_api_gateway_integration.lambda_root
   ]
   rest_api_id = aws_api_gateway_rest_api.api.id
+  lifecycle {
+    create_before_destroy = true
+  }
   triggers = {
     # "using whole resources will show a difference after the initial implementation.
     # It will stabilize to only change when resources change afterwards."
@@ -61,6 +71,7 @@ resource "aws_api_gateway_deployment" "api_production" {
 }
 
 resource "aws_api_gateway_method_settings" "proxy" {
+  #checkov:skip=CKV_AWS_225:don't want caching by gateway - not enough traffic to be worth effort
   rest_api_id = aws_api_gateway_rest_api.api.id
   stage_name = aws_api_gateway_deployment.api_production.stage_name
   method_path = "*/*"
@@ -69,7 +80,7 @@ resource "aws_api_gateway_method_settings" "proxy" {
     throttling_rate_limit = 10
     logging_level      = "INFO"
     metrics_enabled    = true
-    data_trace_enabled = true
+    data_trace_enabled = false
   }
 }
 
@@ -85,6 +96,7 @@ resource "aws_api_gateway_domain_name" "api" {
   endpoint_configuration {
     types = ["REGIONAL"]
   }
+  security_policy = "TLS_1_2"
   provisioner "local-exec" {
     command = "curl --verbose --data-urlencode \"domain=${var.domain}\" --data-urlencode \"password@$${HOME}/.dns-api-password\" --data-urlencode \"command=REPLACE ${var.subdomain_api} 60 CNAME ${aws_api_gateway_domain_name.api.regional_domain_name}.\" \"$(cat $${HOME}/.dns-api-url)\""
   }
